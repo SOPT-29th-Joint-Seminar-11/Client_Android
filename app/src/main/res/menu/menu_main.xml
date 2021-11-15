@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/selector_bottom_home"
+        android:title=""/>
+
+    <item
+        android:id="@+id/menu_wish"
+        android:icon="@drawable/selector_bottom_wish"
+        android:title=""/>
+
+    <item
+        android:id="@+id/menu_calendar"
+        android:icon="@drawable/selector_bottom_calendar"
+        android:title="" />
+    <item
+        android:id="@+id/menu_mypage"
+        android:icon="@drawable/selector_bottom_mypage"
+        android:title=""/>
+</menu>
