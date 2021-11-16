@@ -4,8 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_btn_call.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_facility_park.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_facility_pet.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_star_empty.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/rectangle_border_gray_top.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/rectangle_border_red_radius_5dp.xml" value="0.38229166666666664" />
         <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/activity_detail.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/fragment_shop_info.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/item_slider_img.xml" value="0.2957427536231884" />

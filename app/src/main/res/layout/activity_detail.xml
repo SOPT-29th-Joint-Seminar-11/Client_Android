@@ -232,7 +232,7 @@
         android:background="@drawable/rectangle_border_gray_top"
         app:layout_constraintBottom_toBottomOf="parent">
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_waiting"
             android:layout_width="0dp"
             android:layout_height="53dp"
@@ -252,7 +252,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
+        <android.widget.Button
             android:id="@+id/btn_direct"
             android:layout_width="0dp"
             android:layout_height="53dp"
