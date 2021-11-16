@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:paddingTop="16dp"
+    android:paddingBottom="18dp">
+    <!-- 양옆도 패딩을 줘야하나, 근데 imageView는 꽉 차는데?-->
+
+    <TextView
+        android:id="@+id/tv_cafe_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="cafe name" />
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_cafe_name"
+        tools:text = "7km"/>
+
+    <TextView
+        android:id="@+id/tv_kind_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/tv_cafe_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_cafe_name"
+        tools:text="이탈리아, 김포"/>
+
+    <!-- 이 별표 부분 어떻게 해야할지 모르겠음 정확한 크기로 하려면 커스텀?-->
+    <RatingBar
+        android:id="@+id/rb_average"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        app:layout_constraintStart_toStartOf="@+id/tv_kind_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_kind_location" />
+
+    <TextView
+        android:id="@+id/tv_average_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toEndOf="@id/rb_average"
+        app:layout_constraintTop_toTopOf="@+id/rb_average"
+        tools:text="4.0"/>
+
+    <!-- width랑 height 이렇게 넣는게 맞는지 모르겠다-->
+    <!-- 이미지는 코드 단에서 넣어줌? -->
+    <ImageView
+        android:id="@+id/iv_cafe_image"
+        android:layout_width="230dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/rb_average"
+        app:layout_constraintTop_toBottomOf="@+id/rb_average"
+        tools:src="@color/black" />
+
+    <TextView
+        android:id="@+id/tv_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/iv_cafe_image"
+        app:layout_constraintTop_toBottomOf="@+id/iv_cafe_image"
+        tools:text="다음날도 생각나는 맛, 모든 요리가 다 괜찮았습니다" />
+
+    <TextView
+        android:id="@+id/tv_time_ago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review"
+        app:layout_constraintStart_toStartOf="@+id/tv_review"
+        tools:text="46초전"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
