@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.detail.ShopInfoFragment">
+
+    <TextView
+        android:id="@+id/tv_text_shop_detail_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="영업정보"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+
+        android:fontFamily="@font/noto_sans"
+        android:textFontWeight="700"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:includeFontPadding="false"
+        />
+
+    <TextView
+        android:id="@+id/tv_text_shop_detail_open_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_text_shop_detail_info"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_detail_info"
+        android:layout_marginTop="9dp"
+
+        android:text="운영시간"
+        android:fontFamily="@font/noto_sans"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        android:textColor="@color/gray_3"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/tv_text_shop_detail_break_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_text_shop_detail_open_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_detail_open_time"
+        android:layout_marginTop="8dp"
+
+        android:text="휴식시간"
+        android:fontFamily="@font/noto_sans"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        android:textColor="@color/gray_3"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/tv_text_shop_detail_holiday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_text_shop_detail_break_time"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_detail_break_time"
+        android:layout_marginTop="8dp"
+
+        android:text="휴무일"
+        android:fontFamily="@font/noto_sans"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        android:textColor="@color/gray_3"
+        android:includeFontPadding="false"/>
+
+    <TextView
+        android:id="@+id/tv_shop_detail_open_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:fontFamily="@font/noto_sans"
+
+        tools:text="오늘 11:30 ~ 22:30"
+        android:includeFontPadding="false"
+        android:textColor="@color/gray_3"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_text_shop_detail_open_time"
+        app:layout_constraintStart_toEndOf="@+id/tv_text_shop_detail_open_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_text_shop_detail_open_time" />
+
+    <TextView
+        android:id="@+id/tv_shop_detail_break_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
+
+        android:includeFontPadding="false"
+        android:textColor="@color/gray_3"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_text_shop_detail_break_time"
+        app:layout_constraintStart_toStartOf="@+id/tv_shop_detail_open_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_text_shop_detail_break_time"
+        tools:text="16:00 ~ 17:00" />
+
+
+    <TextView
+        android:id="@+id/tv_shop_detail_holiday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
+
+        android:includeFontPadding="false"
+        android:textColor="@color/gray_3"
+        android:textFontWeight="400"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_text_shop_detail_holiday"
+        app:layout_constraintStart_toStartOf="@+id/tv_shop_detail_break_time"
+        app:layout_constraintTop_toTopOf="@+id/tv_text_shop_detail_holiday"
+        tools:text="일요일" />
+
+
+    <TextView
+        android:id="@+id/tv_text_shop_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/noto_sans"
+        android:includeFontPadding="false"
+        android:layout_marginTop="30dp"
+        android:text="매장 Pick"
+
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_detail_holiday" />
+
+    <TextView
+        android:id="@+id/btn_shop_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_text_shop_detail_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_text_shop_detail_info"
+        android:layout_marginEnd="20dp"
+
+        android:text="더보기"
+        android:fontFamily="@font/noto_sans"
+        android:textFontWeight="500"
+        android:textSize="13sp"
+        android:textColor="@color/gray_3"
+        android:includeFontPadding="false"/>
+
+    <com.example.client_android.ui.detail.ViewPicks
+        android:id="@+id/ll_view_pick"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_shop_more"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_text_shop_category" />
+
+    <TextView
+        android:id="@+id/tv_text_shop_facility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/noto_sans"
+        android:includeFontPadding="false"
+        android:text="편의시설"
+        android:layout_marginTop="30dp"
+
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll_view_pick" />
+
+    <Button
+        android:id="@+id/btn_facility_pet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_facility_pet"
+        android:layout_marginTop="9dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_text_shop_facility"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_facility" />
+
+    <Button
+        android:id="@+id/btn_facility_wifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_facility_wifi"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_facility_pet"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_facility" />
+
+    <Button
+        android:id="@+id/btn_facility_park"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_facility_park"
+        android:layout_marginTop="9dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/btn_facility_wifi"
+        app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_facility" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
