@@ -53,11 +53,11 @@
             android:layout_marginTop="38dp"
             android:fontFamily="@font/noto_sans"
             android:textFontWeight="700"
-
             android:textSize="17sp"
             app:layout_constraintStart_toStartOf="@+id/rv_best_review"
             app:layout_constraintTop_toBottomOf="@+id/rv_best_review"
             tools:text="핫한 맛집, 지금 바로 입장하세요!" />
+
 
         <!--
         <androidx.recyclerview.widget.RecyclerView

@@ -55,21 +55,24 @@ class HomeFragment : Fragment() {
         binding.rvBestReview.adapter = bestReviewAdapter
         binding.rvBestReview.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
 
+        // recyclerView의 item간 여백 설정하기
+        binding.rvBestReview.addItemDecoration(HorizontalItemDecorator(8)) // 픽셀 단위인가 dp 단위인가?
+
         bestReviewAdapter.reviewList.addAll(
             // recyclerView 에 dummy data 넣기 => 나중에 서버에서 받아올것
             mutableListOf(
                 ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0f, 4.0, R.drawable.img_italy ,
                     """다음날도 생각나는 맛, 
-                        |모든 요리가 다 괜찮았습니다""".trimMargin(), 46), // \u0021,
+                        |모든 요리가 다 괜찮았습니다.""".trimMargin(), 46), // \u0021,
                 ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0f, 4.0, R.drawable.img_italy ,
                     """다음날도 생각나는 맛, 
-                        |모든 요리가 다 괜찮았습니다""".trimMargin(), 46),
+                        |모든 요리가 다 괜찮았습니다.""".trimMargin(), 46),
                 ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0f,4.0, R.drawable.img_italy ,
                     """다음날도 생각나는 맛, 
-                        |모든 요리가 다 괜찮았습니다""".trimMargin(), 46),
+                        |모든 요리가 다 괜찮았습니다.""".trimMargin(), 46),
                 ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0f,4.0, R.drawable.img_italy ,
                     """다음날도 생각나는 맛, 
-                        |모든 요리가 다 괜찮았습니다""".trimMargin(), 46)
+                        |모든 요리가 다 괜찮았습니다.""".trimMargin(), 46)
             )
         )
         bestReviewAdapter.notifyDataSetChanged()
