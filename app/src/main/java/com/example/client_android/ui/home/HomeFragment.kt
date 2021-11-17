@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.client_android.R
 import com.example.client_android.databinding.FragmentHomeBinding
-import com.example.client_android.ui.RatingBar
 import com.example.client_android.ui.home.bestreview.BestReviewAdapter
 import com.example.client_android.ui.home.bestreview.ReviewData
 
@@ -19,7 +18,16 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding ?: error("Binding 이 초기화 되지 않았습니다.")
     private lateinit var bestReviewAdapter: BestReviewAdapter
-    private lateinit var bestReviewRecyclerView: RecyclerView
+
+    /* 서버에서 받아올 변수들 - 통신하면서 값이 바뀔 수 있으니 var로 선언? */
+    // 현재 위치의 주소 => 서버에서 받아옴
+    private var currentLocation: String = "마포구 연남동"
+    // 추천카페의 종류 => 현재는 디저트에 대한 추천
+    private var recommendPlace: String = "디저트가 맛있는 카페"
+
+
+    private var bannerTitle: String = "분위기 깡패 루프탑, 테라스 맛집!"
+    private var bannerDetail: String = "맛과 멋을 즐길 수 있는 곳"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,16 +45,25 @@ class HomeFragment : Fragment() {
 
 
     private fun initView(){
-        // 각 textView의 text에 들어갈 값이나 헤더의 주소 같은 정보들 서버에서 받아서 초기화해주는 함수
+        // 각 View들의 text에 들어갈 값이나 헤더의 주소 같은 정보들 서버에서 받거나 직접 초기화해주는 함수
+        initTextView()
         initBestReviewAdapter()
     }
 
 
+    /* initTextView */
+    private fun initTextView(){
+        with(binding)  {
+            tvBestReview.text = recommendPlace
+
+        }
+    }
 
 
 
+    /* initAdapter */
+    private fun initRecommendPlaceAdapter(){
 
-    private fun initRecommendDessertAdapter(){
     }
 
     // bestReviewRecyclerView 의 Adapter 초기화하는 부분
@@ -61,6 +78,7 @@ class HomeFragment : Fragment() {
         bestReviewAdapter.reviewList.addAll(
             // recyclerView 에 dummy data 넣기 => 나중에 서버에서 받아올것
             mutableListOf(
+                // 이 ReviewData 하나하나를 나중에 서버에서 받아올 것
                 ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0f, 4.0, R.drawable.img_italy ,
                     """다음날도 생각나는 맛, 
                         |모든 요리가 다 괜찮았습니다.""".trimMargin(), 46), // \u0021,

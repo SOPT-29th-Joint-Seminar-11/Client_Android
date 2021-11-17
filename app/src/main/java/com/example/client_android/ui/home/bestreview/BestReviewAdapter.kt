@@ -27,12 +27,12 @@ class BestReviewAdapter : RecyclerView.Adapter<BestReviewAdapter.BestReviewViewH
         : RecyclerView.ViewHolder(binding.root){
             fun onBind(data: ReviewData){
                 with(binding) {
-                    tvCafeName.text = data.cafeName
+                    tvPlaceName.text = data.placeName
                     tvDistance.text = data.distance.toString() + "km"
                     tvKindLocation.text = data.kindAndLocation
                     rbBestReview.setStar(data.numOfStars) // rating bar에 별 개수 전달
                     tvAverageScore.text = data.averageScore.toString()
-                    ivCafeImage.setImageResource(data.cafeImage) //
+                    ivPlaceImage.setImageResource(data.placeImage) //
                     tvReview.text = data.review
                     tvTimeAgo.text = data.timeAge.toString() + "초 전"
                 }

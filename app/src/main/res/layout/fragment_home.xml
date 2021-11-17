@@ -11,15 +11,34 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recommend_dessert"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/tv_recommend_place"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:nestedScrollingEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="158dp"
+            android:fontFamily="@font/noto_sans"
+            android:textFontWeight="700"
+            android:textSize="17sp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="디저트가 맛있는 카페" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_recommend_what"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="@+id/tv_recommend_place"
+
+
+            app:layout_constraintTop_toBottomOf="@+id/tv_recommend_place"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_best_review_list" />
 
         <TextView
             android:id="@+id/tv_best_review"
@@ -30,9 +49,11 @@
             android:fontFamily="@font/noto_sans"
             android:textFontWeight="700"
             android:textSize="17sp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_recommend_dessert"
-            tools:text="테이블링 Best 리뷰"/>
+            app:layout_constraintTop_toBottomOf="@id/rv_recommend_what"
+            android:text="@string/home_tv_best_review"
+            tools:text="@string/home_tv_best_review"/>
             <!--실제 text는 코드단에서 서버에서 받아서 넣어줌?-->
 
         <androidx.recyclerview.widget.RecyclerView
@@ -54,39 +75,23 @@
             android:fontFamily="@font/noto_sans"
             android:textFontWeight="700"
             android:textSize="17sp"
+            android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="@+id/rv_best_review"
             app:layout_constraintTop_toBottomOf="@+id/rv_best_review"
-            tools:text="핫한 맛집, 지금 바로 입장하세요!" />
+            android:text="@string/home_tv_hot_place"
+            tools:text="@string/home_tv_hot_place"/>
 
-
-        <!--
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recommend_hot_place"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:layout_marginTop="15dp"
             android:nestedScrollingEnabled="false"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_best_review"/>
-            -->
-
-        <Button
-            android:id="@+id/btn_temp"
-            android:layout_width="200dp"
-            android:layout_height="500dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_hot_place"/>
-
-        <Button
-            android:layout_width="200dp"
-            android:layout_height="500dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/btn_temp"/>
-
-
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="@+id/tv_hot_place"
+            app:layout_constraintTop_toBottomOf="@+id/tv_hot_place"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_best_review_list" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

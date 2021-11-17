@@ -10,7 +10,7 @@
     <!-- 양옆도 패딩을 줘야하나, 근데 imageView는 꽉 차는데?-->
 
     <TextView
-        android:id="@+id/tv_cafe_name"
+        android:id="@+id/tv_place_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
@@ -31,9 +31,9 @@
         android:textColor="@color/gray"
         android:textFontWeight="500"
         android:textSize="13sp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_cafe_name"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_place_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tv_cafe_name"
+        app:layout_constraintTop_toTopOf="@id/tv_place_name"
         tools:text="1km" />
 
     <TextView
@@ -44,8 +44,8 @@
         android:textFontWeight="500"
         android:textSize="12sp"
         android:textColor="@color/gray"
-        app:layout_constraintStart_toStartOf="@id/tv_cafe_name"
-        app:layout_constraintTop_toBottomOf="@id/tv_cafe_name"
+        app:layout_constraintStart_toStartOf="@id/tv_place_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_place_name"
         tools:text="이탈리안 · 김포"/>
 
     <com.example.client_android.ui.RatingBar
@@ -76,7 +76,7 @@
     <!-- width랑 height 이렇게 넣는게 맞는지 모르겠다-->
     <!-- 이미지는 코드 단에서 넣어줌? -->
     <ImageView
-        android:id="@+id/iv_cafe_image"
+        android:id="@+id/iv_place_image"
         android:layout_width="230dp"
         android:layout_height="135dp"
         android:layout_marginTop="19dp"
@@ -95,7 +95,7 @@
         android:textFontWeight="500"
         android:textSize="13sp"
         app:layout_constraintStart_toStartOf="@+id/rb_best_review"
-        app:layout_constraintTop_toBottomOf="@+id/iv_cafe_image"
+        app:layout_constraintTop_toBottomOf="@+id/iv_place_image"
         tools:text="다음날도 생각나는 맛,\n모든 요리가 다 괜찮았습니다." />
 
     <!-- 실제 text는 코드 단에서 넣어주기 -->
