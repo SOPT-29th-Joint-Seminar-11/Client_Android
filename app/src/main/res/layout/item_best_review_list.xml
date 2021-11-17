@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_cafe_name"
         tools:text="이탈리아, 김포"/>
 
-    <!-- 이 별표 부분 어떻게 해야할지 모르겠음 정확한 크기로 하려면 커스텀?-->
+    <!-- 이 별표 부분 어떻게 해야할지 모르겠음 정확한 크기로 하려면 커스텀?
     <RatingBar
         android:id="@+id/rb_average"
         style="@style/Widget.AppCompat.RatingBar.Small"
@@ -42,13 +42,14 @@
         android:numStars="5"
         app:layout_constraintStart_toStartOf="@+id/tv_kind_location"
         app:layout_constraintTop_toBottomOf="@+id/tv_kind_location" />
+    -->
 
     <TextView
         android:id="@+id/tv_average_score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/rb_average"
-        app:layout_constraintTop_toTopOf="@+id/rb_average"
+        app:layout_constraintStart_toStartOf="@+id/tv_kind_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_kind_location"
         tools:text="4.0"/>
 
     <!-- width랑 height 이렇게 넣는게 맞는지 모르겠다-->
@@ -58,8 +59,8 @@
         android:layout_width="230dp"
         android:layout_height="135dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@id/rb_average"
-        app:layout_constraintTop_toBottomOf="@+id/rb_average"
+        app:layout_constraintStart_toStartOf="@+id/tv_average_score"
+        app:layout_constraintTop_toBottomOf="@+id/tv_average_score"
         tools:src="@color/black" />
 
     <TextView
