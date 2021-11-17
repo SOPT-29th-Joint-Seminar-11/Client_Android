@@ -9,7 +9,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="30dp">
 
         <TextView
             android:id="@+id/tv_recommend_place"
@@ -90,6 +91,51 @@
             app:layout_constraintTop_toBottomOf="@+id/tv_hot_place"
             tools:itemCount="1"
             tools:listitem="@layout/item_recommend_place_list" />
+
+
+        <ImageView
+            android:id="@+id/iv_banner"
+            android:layout_width="318dp"
+            android:layout_height="151dp"
+            android:layout_marginTop="31dp"
+            app:layout_constraintStart_toStartOf="@+id/rv_recommend_hot_place"
+            app:layout_constraintTop_toBottomOf="@+id/rv_recommend_hot_place"
+            tools:src="@drawable/img_rooftop" />
+
+        <View
+            android:id="@+id/view_red_line"
+            android:layout_width="24dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/main"
+            app:layout_constraintStart_toStartOf="@+id/iv_banner"
+            app:layout_constraintTop_toTopOf="@+id/iv_banner" />
+
+        <TextView
+            android:id="@+id/tv_banner_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/noto_sans"
+            android:textColor="@color/white"
+            android:textFontWeight="700"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="@+id/view_red_line"
+            app:layout_constraintTop_toBottomOf="@+id/view_red_line"
+            tools:text="분위기 깡패 루프탑, 테라스 맛집!" />
+
+        <TextView
+            android:id="@+id/tv_banner_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_banner_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_banner_title"
+            tools:text="맛과 멋을 즐길 수 있는 곳!" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

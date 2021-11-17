@@ -67,7 +67,9 @@ class HomeFragment : Fragment() {
     /* initTextView */
     private fun initTextView(){
         with(binding)  {
-            tvRecommendPlace.text = recommendPlace
+            tvBannerTitle.text = "분위기 깡패 루프탑, 테라스 맛집!"
+            tvBannerDetail.text = "맛과 멋을 즐길 수 있는 곳!"
+            ivBanner.setImageResource(R.drawable.img_rooftop)
             // 광고 배너 초기화
         }
     }
