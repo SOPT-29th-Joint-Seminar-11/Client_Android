@@ -2,16 +2,121 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
+    <!-- 지금은 이미지를 export할 때 자체에 모서리가 둥글게 되었지만 imageView에서 radius 설정 해줘야 한다-->
     <ImageView
         android:id="@+id/iv_place_image"
-        android:layout_width="230dp"
-        android:layout_height="135dp"
-        android:layout_marginTop="19dp"
+        android:layout_width="140dp"
+        android:layout_height="108dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rb_best_review"
-        tools:src="@drawable/img_italy" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/img_uni"/>
 
+    <TextView
+        android:id="@+id/tv_place_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="9dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/black"
+        android:textFontWeight="500"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="@+id/iv_place_image"
+        app:layout_constraintTop_toBottomOf="@+id/iv_place_image"
+        tools:text="유니유니" />
+
+
+    <ImageView
+        android:id="@+id/iv_average_star"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:layout_marginTop="4dp"
+        tools:src="@drawable/ic_star_fill"
+        app:layout_constraintStart_toStartOf="@+id/tv_place_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_place_name" />
+
+    <!-- 옆에 붙어있는 iv_average_star 와 정렬이 안맞는 느낌-->
+    <TextView
+        android:id="@+id/tv_average_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/main"
+        android:textFontWeight="500"
+
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_average_star"
+        app:layout_constraintStart_toEndOf="@+id/iv_average_star"
+        app:layout_constraintTop_toTopOf="@+id/iv_average_star"
+        tools:text="5.0" />
+
+    <TextView
+        android:id="@+id/tv_review_cnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/black"
+        android:textFontWeight="500"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_average_score"
+        app:layout_constraintStart_toEndOf="@+id/tv_average_score"
+        app:layout_constraintTop_toTopOf="@+id/tv_average_score"
+        tools:text="(7)" />
+
+    <TextView
+        android:id="@+id/tv_cafe_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="7dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/gray"
+        android:textFontWeight="500"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_review_cnt"
+        app:layout_constraintStart_toEndOf="@+id/tv_review_cnt"
+        app:layout_constraintTop_toTopOf="@+id/tv_review_cnt"
+        tools:text="카페 · 상수" />
+
+    <TextView
+        android:id="@+id/tv_fast_reservation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/rv_btn_background"
+        android:paddingStart="5dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="6dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/gray_3"
+        android:textFontWeight="400"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_average_score"
+        tools:text="즉시예약" />
+
+    <TextView
+        android:id="@+id/tv_remote_waiting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/rv_btn_background"
+        android:paddingStart="5dp"
+        android:paddingTop="6dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="6dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/gray_3"
+        android:textFontWeight="400"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/tv_fast_reservation"
+        app:layout_constraintTop_toTopOf="@+id/tv_fast_reservation"
+        tools:text="원격줄서기" />
 </androidx.constraintlayout.widget.ConstraintLayout>

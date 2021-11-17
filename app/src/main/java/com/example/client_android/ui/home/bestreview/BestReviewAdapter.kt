@@ -29,7 +29,7 @@ class BestReviewAdapter : RecyclerView.Adapter<BestReviewAdapter.BestReviewViewH
                 with(binding) {
                     tvPlaceName.text = data.placeName
                     tvDistance.text = data.distance.toString() + "km"
-                    tvKindLocation.text = data.kindAndLocation
+                    tvKindLocation.text = data.kind + " · " + data.location
                     rbBestReview.setStar(data.numOfStars) // rating bar에 별 개수 전달
                     tvAverageScore.text = data.averageScore.toString()
                     ivPlaceImage.setImageResource(data.placeImage) //

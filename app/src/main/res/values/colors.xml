@@ -16,4 +16,7 @@
     
     <color name="rv_item_border">#eaeef6</color>
     <color name="rv_item_background">#fbfbfc</color>
+
+    <color name="rv_btn_background">#07ff2200</color>
+    <color name="rv_btn_border">#30ff2200</color>
 </resources>
