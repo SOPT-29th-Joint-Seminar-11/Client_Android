@@ -83,6 +83,7 @@
         app:layout_constraintTop_toTopOf="@+id/tv_review_cnt"
         tools:text="카페 · 상수" />
 
+    <!-- 나중에 textView naming 다시, 각 버튼이 즉시예약, 원격줄서기를 의미하는 건 아니므로-->
     <TextView
         android:id="@+id/tv_fast_reservation"
         android:layout_width="wrap_content"
