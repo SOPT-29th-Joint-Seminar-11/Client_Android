@@ -21,9 +21,10 @@
         android:id="@+id/tv_distance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tv_cafe_name"
-        tools:text = "7km"/>
+        tools:text="7km" />
 
     <TextView
         android:id="@+id/tv_kind_location"
@@ -59,15 +60,18 @@
         android:layout_width="230dp"
         android:layout_height="135dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="@+id/tv_average_score"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_average_score"
-        tools:src="@color/black" />
+        tools:src="@drawable/img_italy" />
 
     <TextView
         android:id="@+id/tv_review"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="19dp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_cafe_image"
         app:layout_constraintStart_toStartOf="@+id/iv_cafe_image"
         app:layout_constraintTop_toBottomOf="@+id/iv_cafe_image"
         tools:text="다음날도 생각나는 맛, 모든 요리가 다 괜찮았습니다" />
@@ -76,9 +80,10 @@
         android:id="@+id/tv_time_ago"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_review"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/tv_review"
-        tools:text="46초전"/>
+        app:layout_constraintTop_toBottomOf="@+id/tv_review"
+        tools:text="46초전" />
 
 
 

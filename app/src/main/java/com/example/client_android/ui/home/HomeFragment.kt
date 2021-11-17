@@ -25,7 +25,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
-        initBestReviewAdapter()
+        initView()
         return binding.root
     }
 
@@ -35,6 +35,16 @@ class HomeFragment : Fragment() {
     }
 
 
+    private fun initView(){
+        // 각 textView의 text에 들어갈 값이나 헤더의 주소 같은 정보들 서버에서 받아서 초기화해주는 함수
+        initBestReviewAdapter()
+    }
+
+
+    private fun initRecommendDessertAdapter(){
+
+    }
+
     // bestReviewRecyclerView 의 Adapter 초기화하는 부분
     private fun initBestReviewAdapter(){
         bestReviewAdapter = BestReviewAdapter()
@@ -43,18 +53,21 @@ class HomeFragment : Fragment() {
 
         bestReviewAdapter.reviewList.addAll( // recyclerView 에 dummy data 넣기
             listOf(
-                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.ic_launcher_foreground ,
+                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.img_italy ,
                     "다음날도 생각나는 맛, 모든 요리가 다 괜찮았습니다", 46), // \u0021,
-                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.ic_launcher_foreground  ,
+                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.img_italy ,
                     "다음날도 생각나는 맛, 모든 요리가 다 괜찮았습니다", 46),
-                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.ic_launcher_foreground  ,
+                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.img_italy ,
                     "다음날도 생각나는 맛, 모든 요리가 다 괜찮았습니다", 46),
-                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.ic_launcher_foreground  ,
+                ReviewData("이태리집", 1, "이탈리안 · 김포", 4.0, R.drawable.img_italy ,
                     "다음날도 생각나는 맛, 모든 요리가 다 괜찮았습니다", 46)
             )
         )
-
         bestReviewAdapter.notifyDataSetChanged()
+    }
+
+    private fun initHotPlaceAdapter(){
+
     }
 
 }
