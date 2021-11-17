@@ -12,4 +12,6 @@
     <color name="gray">#8F8F8F</color>
     <color name="gray_2">#D7D7D7</color>
     <color name="line">#F3F5F8</color>
+    <color name="line_gray">#E7E7E7</color>
+    <color name="black_alpha_35">#59000000</color>
 </resources>

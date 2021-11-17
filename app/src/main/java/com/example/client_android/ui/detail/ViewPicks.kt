@@ -54,8 +54,6 @@ class ViewPicks @JvmOverloads constructor(
 
     }
 
-    private fun getDP(value: Int): Int {
-        return (value * scale + 0.5f).toInt()
-    }
+    private fun getDP(value: Int): Int = (value * scale + 0.5f).toInt()
 
 }

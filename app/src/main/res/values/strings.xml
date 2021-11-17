@@ -5,4 +5,25 @@
     <string name="wish">Hello wish fragment</string>
     <string name="calendar">Hello calendar fragment</string>
     <string name="mypage">Hello mypage fragment</string>
+
+    <!-- detail_activity tools:text -->
+    <string name="tool_detail_img_indicator">1 / 8</string>
+    <string name="tool_detail_wait_count">대기 3팀</string>
+    <string name="tool_detail_shop_name">유니유니</string>
+    <string name="tool_detail_shop_address">서울특별시 성북구 길음동 1276</string>
+    <string name="tool_detail_shop_rating">5.0</string>
+    <string name="tool_detail_shop_reviews">(7)</string>
+    <string name="tool_detail_shop_introduction">유니유니는 다양한 스콘, 쿠키, 음료, 자체 제작 케이크로 보는 즐거움과 더불어 먹는 즐거음울 선사합니다</string>
+    <string name="tool_detail_shop_distance">1km</string>
+
+    <!-- detail_activity android:text -->
+    <string name="android_detail_btn_remote_wait">원격 줄서기</string>
+    <string name="android_detail_btn_direct_reservation">즉시 예약</string>
+
+    <!-- menu_button_shop -->
+    <string name="android_menu_button_shop_map">위치</string>
+    <string name="android_menu_button_shop_call">전화</string>
+    <string name="android_menu_button_shop_share">공유</string>
+    <string name="tool_menu_button_shop_wish">18</string>
+
 </resources>

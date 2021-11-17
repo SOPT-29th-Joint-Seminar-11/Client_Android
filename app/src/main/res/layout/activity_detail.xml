@@ -23,7 +23,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginBottom="17dp"
                 android:background="@drawable/rectangle_fill_radius_30dp"
-                android:backgroundTint="#59000000"
+                android:backgroundTint="@color/black_alpha_35"
                 android:fontFamily="@font/noto_sans"
                 android:includeFontPadding="false"
 
@@ -35,7 +35,7 @@
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/vp_img"
                 app:layout_constraintEnd_toEndOf="parent"
-                tools:text="1 / 8" />
+                tools:text="@string/tool_detail_img_indicator" />
 
             <TextView
                 android:id="@+id/tv_wait_count"
@@ -56,7 +56,7 @@
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/vp_img"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="대기 3팀" />
+                tools:text="@string/tool_detail_wait_count" />
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/vp_img"
@@ -76,7 +76,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/vp_img"
 
-                tools:text="유니유니"
+                tools:text="@string/tool_detail_shop_name"
                 android:fontFamily="@font/noto_sans"
                 android:textFontWeight="700"
                 android:textSize="22sp"
@@ -96,7 +96,7 @@
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_shop_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_shop_name"
-                tools:text="서울특별시 성북구 길음동 1276" />
+                tools:text="@string/tool_detail_shop_address" />
 
             <com.example.client_android.ui.ViewRatingBar
                 android:id="@+id/ll_rating_bar"
@@ -115,7 +115,7 @@
                 app:layout_constraintStart_toEndOf="@+id/ll_rating_bar"
                 app:layout_constraintTop_toTopOf="@+id/ll_rating_bar"
 
-                tools:text="5.0"
+                tools:text="@string/tool_detail_shop_rating"
                 android:fontFamily="@font/noto_sans"
                 android:textFontWeight="500"
                 android:textSize="14sp"
@@ -131,7 +131,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/ll_rating_bar"
                 app:layout_constraintTop_toTopOf="@+id/ll_rating_bar"
 
-                tools:text="(7)"
+                tools:text="@string/tool_detail_shop_reviews"
                 android:fontFamily="@font/noto_sans"
                 android:textFontWeight="500"
                 android:textSize="14sp"
@@ -152,7 +152,7 @@
                 app:layout_constraintBottom_toBottomOf="@+id/tv_shop_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/tv_shop_name"
-                tools:text="1km" />
+                tools:text="@string/tool_detail_shop_distance" />
 
             <ImageView
                 android:id="@+id/iv_ic_map"
@@ -174,7 +174,7 @@
                 android:layout_marginTop="11dp"
                 android:layout_marginEnd="42dp"
 
-                tools:text="유니유니는 다양한 스콘, 쿠키, 음료, 자체 제작 케이크로 보는 즐거움과 더불어 먹는 즐거음울 선사합니다"
+                tools:text="@string/tool_detail_shop_introduction"
                 android:fontFamily="@font/noto_sans"
                 android:textFontWeight="400"
                 android:textSize="13sp"
@@ -242,18 +242,18 @@
             android:background="@drawable/rectangle_border_red_radius_5dp"
             android:fontFamily="@font/noto_sans"
             android:includeFontPadding="false"
-            android:text="원격 줄서기"
+            android:text="@string/android_detail_btn_remote_wait"
             android:textColor="@color/black"
 
             android:textFontWeight="700"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_direct"
+            app:layout_constraintEnd_toStartOf="@+id/btn_direct_reservation"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.widget.Button
-            android:id="@+id/btn_direct"
+            android:id="@+id/btn_direct_reservation"
             android:layout_width="0dp"
             android:layout_height="53dp"
             android:layout_marginVertical="10dp"
@@ -263,7 +263,7 @@
             android:backgroundTint="@color/red_main"
             android:fontFamily="@font/noto_sans"
             android:includeFontPadding="false"
-            android:text="즉시 예약"
+            android:text="@string/android_detail_btn_direct_reservation"
             android:textColor="@color/white"
 
             android:textFontWeight="700"

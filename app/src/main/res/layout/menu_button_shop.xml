@@ -30,7 +30,7 @@
             android:fontFamily="@font/noto_sans"
             android:includeFontPadding="false"
 
-            android:text="위치"
+            android:text="@string/android_menu_button_shop_map"
             android:textColor="@color/gray_3"
             android:textFontWeight="400"
             android:textSize="11sp"
@@ -72,7 +72,7 @@
             android:layout_marginTop="7dp"
             android:fontFamily="@font/noto_sans"
             android:includeFontPadding="false"
-            android:text="전화"
+            android:text="@string/android_menu_button_shop_call"
 
             android:textColor="@color/gray_3"
             android:textFontWeight="400"
@@ -115,7 +115,7 @@
             android:layout_marginTop="7dp"
             android:fontFamily="@font/noto_sans"
             android:includeFontPadding="false"
-            android:text="공유"
+            android:text="@string/android_menu_button_shop_share"
 
             android:textColor="@color/gray_3"
             android:textFontWeight="400"
@@ -165,7 +165,7 @@
             app:layout_constraintEnd_toEndOf="@+id/iv_btn_wish"
             app:layout_constraintStart_toStartOf="@+id/iv_btn_wish"
             app:layout_constraintTop_toBottomOf="@+id/iv_btn_wish"
-            tools:text="18" />
+            tools:text="@string/tool_menu_button_shop_wish" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
