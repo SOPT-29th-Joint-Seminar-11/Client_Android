@@ -6,17 +6,17 @@ import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.client_android.R
-import com.example.client_android.databinding.RatingBarBinding
+import com.example.client_android.databinding.ViewRatingBarBinding
 import kotlin.math.ceil
 
-class RatingBar @JvmOverloads constructor(
+class ViewRatingBar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
-    private var binding: RatingBarBinding
+    private var binding: ViewRatingBarBinding
     private val stars = mutableListOf<ImageView>()
 
     init {
-        binding = RatingBarBinding.inflate(LayoutInflater.from(context), this, true)
+        binding = ViewRatingBarBinding.inflate(LayoutInflater.from(context), this, true)
 
         stars.addAll(
             listOf(
