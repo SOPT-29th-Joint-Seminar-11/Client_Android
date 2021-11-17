@@ -25,7 +25,6 @@
             android:id="@+id/tv_best_review"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
             android:layout_marginStart="20dp"
             android:layout_marginTop="37dp"
             android:fontFamily="@font/noto_sans"
@@ -34,7 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rv_recommend_dessert"
             tools:text="테이블링 Best 리뷰"/>
-<!--            실제 text는 코드단에서 서버에서 받아서 넣어줌?-->
+            <!--실제 text는 코드단에서 서버에서 받아서 넣어줌?-->
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_best_review"
