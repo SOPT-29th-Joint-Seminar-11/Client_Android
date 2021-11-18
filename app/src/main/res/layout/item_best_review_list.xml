@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingTop="16dp"
+    android:paddingBottom="18dp"
+    android:background="@drawable/box_review">
+    <!-- 양옆도 패딩을 줘야하나, 근데 imageView는 꽉 차는데?-->
+
+    <TextView
+        android:id="@+id/tv_place_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="19dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/black"
+        android:textFontWeight="700"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="이태리집" />
+
+    <TextView
+        android:id="@+id/tv_distance"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginEnd="19dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/gray"
+        android:textFontWeight="500"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_place_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_place_name"
+        tools:text="1km" />
+
+    <TextView
+        android:id="@+id/tv_kind_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans"
+        android:textFontWeight="500"
+        android:textSize="12sp"
+        android:textColor="@color/gray"
+        app:layout_constraintStart_toStartOf="@id/tv_place_name"
+        app:layout_constraintTop_toBottomOf="@id/tv_place_name"
+        tools:text="이탈리안 · 김포"/>
+
+    <com.example.client_android.ui.RatingBar
+        android:id="@+id/rb_best_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        app:layout_constraintStart_toStartOf="@+id/tv_kind_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_kind_location" />
+
+
+<!--    제약 조건 어떻게 줘야할지 모르겟음-->
+    <TextView
+        android:id="@+id/tv_average_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/black"
+        android:textFontWeight="500"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/rb_best_review"
+        app:layout_constraintStart_toEndOf="@+id/rb_best_review"
+        app:layout_constraintTop_toTopOf="@+id/rb_best_review"
+        tools:text="4.0" />
+
+
+    <!-- width랑 height 이렇게 넣는게 맞는지 모르겠다-->
+    <!-- 이미지는 코드 단에서 넣어줌? -->
+    <ImageView
+        android:id="@+id/iv_place_image"
+        android:layout_width="230dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="19dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rb_best_review"
+        tools:src="@drawable/img_italy" />
+
+    <!-- 실제 text는 코드 단에서 넣어주기 -->
+    <TextView
+        android:id="@+id/tv_review"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/gray_3"
+        android:textFontWeight="500"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="@+id/rb_best_review"
+        app:layout_constraintTop_toBottomOf="@+id/iv_place_image"
+        tools:text="다음날도 생각나는 맛,\n모든 요리가 다 괜찮았습니다." />
+
+    <!-- 실제 text는 코드 단에서 넣어주기 -->
+    <TextView
+        android:id="@+id/tv_time_ago"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:fontFamily="@font/noto_sans"
+        android:textColor="@color/gray"
+        android:textFontWeight="500"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_review"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review"
+        tools:text="46초전" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,11 @@
     <string name="calendar">Hello calendar fragment</string>
     <string name="mypage">Hello mypage fragment</string>
 
+    <string name="home_tv_best_review">테이블링 Best 리뷰</string>
+    <string name="home_tv_hot_place">핫한 맛집, 지금 바로 입장하세요!</string>
+    <string name="rv_btn_fast_resevation">즉시예약</string>
+    <string name="rv_btn_remote_waiting">원격줄서기</string>
+
     <!-- detail_activity tools:text -->
     <string name="tool_detail_img_indicator">1 / 8</string>
     <string name="tool_detail_wait_count">대기 3팀</string>
