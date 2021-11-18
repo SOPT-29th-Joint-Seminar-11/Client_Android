@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment"
     android:fillViewport="true">
+
+    <com.example.client_android.ui.home.MyStickyHeader
+        android:id="@+id/nsv_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,6 +19,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/cl_address"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,10 +63,13 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cl_list"
+            android:id="@+id/cl_search"
+            android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintTop_toBottomOf="@+id/cl_address">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cl_address">
 
             <ImageView
                 android:id="@+id/iv_icon"
@@ -68,7 +77,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
                 android:src="@drawable/ic_logo"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -77,14 +88,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="21dp"
-                android:paddingTop="12dp"
-                android:paddingBottom="12dp"
-                android:paddingStart="20dp"
                 android:background="@drawable/rectangle_border_gray_30"
                 android:ems="10"
-                android:inputType="textPersonName"
                 android:fontFamily="@font/noto_sans_regular"
                 android:hint="@string/home_search_box_hint"
+                android:inputType="textPersonName"
+                android:paddingStart="20dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="@+id/iv_icon"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -99,19 +110,26 @@
                 app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
                 app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
                 app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_search">
 
             <TextView
                 android:id="@+id/tv_recommend_place"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="33dp"
+                android:layout_marginTop="14dp"
                 android:fontFamily="@font/noto_sans"
                 android:textColor="@color/black"
                 android:textFontWeight="700"
                 android:textSize="17sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/iv_icon"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:text="디저트가 맛있는 카페" />
 
 
@@ -240,4 +258,6 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.core.widget.NestedScrollView>
+
+    </com.example.client_android.ui.home.MyStickyHeader>
+</FrameLayout>
