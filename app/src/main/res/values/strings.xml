@@ -30,5 +30,9 @@
     <string name="android_menu_button_shop_call">전화</string>
     <string name="android_menu_button_shop_share">공유</string>
     <string name="tool_menu_button_shop_wish">18</string>
+    
+    <!-- home -->
+    <string name="home_address">마포구 연남동 123</string>
+    <string name="home_search_box_hint">지역/음식종류/레스토랑 검색</string>
 
 </resources>

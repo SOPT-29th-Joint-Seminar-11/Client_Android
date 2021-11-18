@@ -12,129 +12,231 @@
         android:layout_height="wrap_content"
         android:paddingBottom="30dp">
 
-        <TextView
-            android:id="@+id/tv_recommend_place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="158dp"
-            android:fontFamily="@font/noto_sans"
-            android:textFontWeight="700"
-            android:textSize="17sp"
-            android:textColor="@color/black"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="디저트가 맛있는 카페" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/home_address"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iv_search_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-10dp"
+                android:src="@drawable/ic_btn_adress"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_address"
+                app:layout_constraintStart_toEndOf="@+id/tv_address"
+                app:layout_constraintTop_toTopOf="@+id/tv_address" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="1dp"
+                android:background="@color/line_gray"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@+id/cl_address">
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/ic_logo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="21dp"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="20dp"
+                android:background="@drawable/rectangle_border_gray_30"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:fontFamily="@font/noto_sans_regular"
+                android:hint="@string/home_search_box_hint"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_icon"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/iv_icon"
+                app:layout_constraintTop_toTopOf="@+id/iv_icon" />
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_btn_search"
+                app:layout_constraintBottom_toBottomOf="@+id/editTextTextPersonName"
+                app:layout_constraintEnd_toEndOf="@+id/editTextTextPersonName"
+                app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+
+            <TextView
+                android:id="@+id/tv_recommend_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="33dp"
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/black"
+                android:textFontWeight="700"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/iv_icon"
+                tools:text="디저트가 맛있는 카페" />
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recommend_what"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="@+id/tv_recommend_place"
-            app:layout_constraintTop_toBottomOf="@+id/tv_recommend_place"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_recommend_place_list" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommend_what"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:layout_marginEnd="20dp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_recommend_place"
+                app:layout_constraintTop_toBottomOf="@+id/tv_recommend_place"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_recommend_place_list" />
 
-        <TextView
-            android:id="@+id/tv_best_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="37dp"
-            android:fontFamily="@font/noto_sans"
-            android:textFontWeight="700"
-            android:textSize="17sp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/rv_recommend_what"
-            android:text="@string/home_tv_best_review"
-            tools:text="@string/home_tv_best_review"/>
+            <TextView
+                android:id="@+id/tv_best_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="37dp"
+                android:fontFamily="@font/noto_sans"
+                android:textFontWeight="700"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rv_recommend_what"
+                android:text="@string/home_tv_best_review"
+                tools:text="@string/home_tv_best_review"/>
             <!--실제 text는 코드단에서 서버에서 받아서 넣어줌?-->
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_best_review"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:nestedScrollingEnabled="false"
-            app:layout_constraintStart_toStartOf="@+id/tv_best_review"
-            app:layout_constraintTop_toBottomOf="@+id/tv_best_review"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_best_review_list" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_best_review"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_best_review"
+                app:layout_constraintTop_toBottomOf="@+id/tv_best_review"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_best_review_list" />
 
-        <TextView
-            android:id="@+id/tv_hot_place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="38dp"
-            android:fontFamily="@font/noto_sans"
-            android:textFontWeight="700"
-            android:textSize="17sp"
-            android:textColor="@color/black"
-            app:layout_constraintStart_toStartOf="@+id/rv_best_review"
-            app:layout_constraintTop_toBottomOf="@+id/rv_best_review"
-            android:text="@string/home_tv_hot_place"
-            tools:text="@string/home_tv_hot_place"/>
+            <TextView
+                android:id="@+id/tv_hot_place"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="38dp"
+                android:fontFamily="@font/noto_sans"
+                android:textFontWeight="700"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toStartOf="@+id/rv_best_review"
+                app:layout_constraintTop_toBottomOf="@+id/rv_best_review"
+                android:text="@string/home_tv_hot_place"
+                tools:text="@string/home_tv_hot_place"/>
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_recommend_hot_place"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:nestedScrollingEnabled="false"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="@+id/tv_hot_place"
-            app:layout_constraintTop_toBottomOf="@+id/tv_hot_place"
-            tools:itemCount="1"
-            tools:listitem="@layout/item_recommend_place_list" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_recommend_hot_place"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:nestedScrollingEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tv_hot_place"
+                app:layout_constraintTop_toBottomOf="@+id/tv_hot_place"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_recommend_place_list" />
 
 
-        <ImageView
-            android:id="@+id/iv_banner"
-            android:layout_width="318dp"
-            android:layout_height="151dp"
-            android:layout_marginTop="31dp"
-            app:layout_constraintStart_toStartOf="@+id/rv_recommend_hot_place"
-            app:layout_constraintTop_toBottomOf="@+id/rv_recommend_hot_place"
-            tools:src="@drawable/img_rooftop" />
+            <ImageView
+                android:id="@+id/iv_banner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                android:layout_marginEnd="20dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/rv_recommend_hot_place"
+                app:layout_constraintTop_toBottomOf="@+id/rv_recommend_hot_place"
+                tools:src="@drawable/img_rooftop" />
 
-        <View
-            android:id="@+id/view_red_line"
-            android:layout_width="24dp"
-            android:layout_height="1dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="25dp"
-            android:background="@color/main"
-            app:layout_constraintStart_toStartOf="@+id/iv_banner"
-            app:layout_constraintTop_toTopOf="@+id/iv_banner" />
+            <View
+                android:id="@+id/view_red_line"
+                android:layout_width="24dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/main"
+                app:layout_constraintStart_toStartOf="@+id/iv_banner"
+                app:layout_constraintTop_toTopOf="@+id/iv_banner" />
 
-        <TextView
-            android:id="@+id/tv_banner_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:fontFamily="@font/noto_sans"
-            android:textColor="@color/white"
-            android:textFontWeight="700"
-            android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="@+id/view_red_line"
-            app:layout_constraintTop_toBottomOf="@+id/view_red_line"
-            tools:text="분위기 깡패 루프탑, 테라스 맛집!" />
+            <TextView
+                android:id="@+id/tv_banner_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/white"
+                android:textFontWeight="700"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@+id/view_red_line"
+                app:layout_constraintTop_toBottomOf="@+id/view_red_line"
+                tools:text="분위기 깡패 루프탑, 테라스 맛집!" />
 
-        <TextView
-            android:id="@+id/tv_banner_detail"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/noto_sans"
-            android:textColor="@color/white"
-            android:textFontWeight="400"
-            app:layout_constraintStart_toStartOf="@+id/tv_banner_title"
-            app:layout_constraintTop_toBottomOf="@+id/tv_banner_title"
-            tools:text="맛과 멋을 즐길 수 있는 곳!" />
+            <TextView
+                android:id="@+id/tv_banner_detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans"
+                android:textColor="@color/white"
+                android:textFontWeight="400"
+                app:layout_constraintStart_toStartOf="@+id/tv_banner_title"
+                app:layout_constraintTop_toBottomOf="@+id/tv_banner_title"
+                tools:text="맛과 멋을 즐길 수 있는 곳!" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--실제 text는 코드단에서 서버에서 받아서 넣어줌?-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
