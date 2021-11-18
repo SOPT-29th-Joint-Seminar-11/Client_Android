@@ -8,15 +8,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="gray_3">#5a5f67</color>
-    <color name="gray">#8f8f8f</color>
     <color name="main">#ff2200</color>
-    <color name="line">#f3f5f8</color>
-    <color name="gray_2">#d7d7d7</color>
-    
     <color name="rv_item_border">#eaeef6</color>
     <color name="rv_item_background">#fbfbfc</color>
-
     <color name="rv_btn_background">#07ff2200</color>
     <color name="rv_btn_border">#30ff2200</color>
+
+    <color name="red_main">#FF2200</color>
+    <color name="gray_3">#5A5F67</color>
+    <color name="gray">#8F8F8F</color>
+    <color name="gray_2">#D7D7D7</color>
+    <color name="line">#F3F5F8</color>
+    <color name="line_gray">#E7E7E7</color>
+    <color name="black_alpha_35">#59000000</color>
 </resources>
