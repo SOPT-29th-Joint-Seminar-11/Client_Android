@@ -132,7 +132,6 @@
             android:fontFamily="@font/noto_sans"
             android:textColor="@color/white"
             android:textFontWeight="400"
-            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="@+id/tv_banner_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_banner_title"
             tools:text="맛과 멋을 즐길 수 있는 곳!" />

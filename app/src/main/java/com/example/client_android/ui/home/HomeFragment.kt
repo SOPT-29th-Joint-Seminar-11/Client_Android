@@ -28,13 +28,13 @@ class HomeFragment : Fragment() {
 
     /* 서버에서 받아올 변수들 - 통신하면서 값이 바뀔 수 있으니 var 로 선언? */
     // 현재 위치의 주소 => 서버에서 받아옴
-    private var currentLocation: String = "마포구 연남동"
+    private var currentLocation = "마포구 연남동"
     // 추천카페의 종류 => 현재는 디저트에 대한 추천
-    private var recommendPlace: String = "디저트가 맛있는 카페"
+    private var recommendPlace = "디저트가 맛있는 카페"
 
 
-    private var bannerTitle: String = "분위기 깡패 루프탑, 테라스 맛집!"
-    private var bannerDetail: String = "맛과 멋을 즐길 수 있는 곳"
+    private var bannerTitle = "분위기 깡패 루프탑, 테라스 맛집!"
+    private var bannerDetail = "맛과 멋을 즐길 수 있는 곳"
 
 
 
