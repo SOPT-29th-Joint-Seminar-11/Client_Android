@@ -48,7 +48,7 @@
         app:layout_constraintTop_toBottomOf="@id/tv_place_name"
         tools:text="이탈리안 · 김포"/>
 
-    <com.example.client_android.ui.RatingBar
+    <com.example.client_android.ui.ViewRatingBar
         android:id="@+id/rb_best_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

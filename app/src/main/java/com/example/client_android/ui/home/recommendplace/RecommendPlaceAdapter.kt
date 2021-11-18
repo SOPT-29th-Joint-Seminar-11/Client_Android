@@ -21,6 +21,11 @@ class RecommendPlaceAdapter : RecyclerView.Adapter<RecommendPlaceAdapter.Recomme
 
     override fun onBindViewHolder(holder: RecommendPlaceViewHolder, position: Int) {
         holder.onBind(placeList[position])
+
+        //view에 onClickListner를 달고, 그 안에서 직접 만든 itemClickListener를 연결시킨다
+        holder.itemView.setOnClickListener {
+            itemClickListner.onClick(it, position)
+        }
     }
 
     override fun getItemCount(): Int = placeList.size
@@ -62,5 +67,18 @@ class RecommendPlaceAdapter : RecyclerView.Adapter<RecommendPlaceAdapter.Recomme
 
             }
     }
+
+    interface ItemClickListener {
+        fun onClick(view: View, position: Int)
+    }
+
+    //클릭리스너 선언
+    private lateinit var itemClickListner: ItemClickListener
+
+    //클릭리스너 등록 매소드
+    fun setItemClickListener(itemClickListener: ItemClickListener) {
+        this.itemClickListner = itemClickListener
+    }
+
 
 }

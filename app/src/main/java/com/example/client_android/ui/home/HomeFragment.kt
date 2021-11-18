@@ -1,14 +1,18 @@
 package com.example.client_android.ui.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.client_android.R
 import com.example.client_android.databinding.FragmentHomeBinding
+import com.example.client_android.ui.detail.DetailActivity
 import com.example.client_android.ui.home.bestreview.BestReviewAdapter
 import com.example.client_android.ui.home.bestreview.ReviewData
 import com.example.client_android.ui.home.recommendplace.PlaceData
@@ -44,6 +48,7 @@ class HomeFragment : Fragment() {
     ): View? {
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         initView()
+        stickyHeader()
         return binding.root
     }
 
@@ -61,6 +66,8 @@ class HomeFragment : Fragment() {
         initRecommendPlaceAdapter()
         initBestReviewAdapter()
         initHotPlaceAdapter()
+
+        //setListener()
     }
 
 
@@ -98,6 +105,17 @@ class HomeFragment : Fragment() {
         )
 
         recommendPlaceAdapter.notifyDataSetChanged()
+
+        //클릭리스너 등록
+        recommendPlaceAdapter.setItemClickListener( object : RecommendPlaceAdapter.ItemClickListener{
+            override fun onClick(view: View, position: Int) {
+                activity?.let{
+                    val intent = Intent(context, DetailActivity::class.java)
+                    startActivity(intent)
+                }
+
+            }
+        })
     }
 
     // rv_best_review 의 Adapter 초기화
@@ -128,6 +146,7 @@ class HomeFragment : Fragment() {
             )
         )
         bestReviewAdapter.notifyDataSetChanged()
+
     }
 
     // rv_recommend_hot_place 의 adapter 초기화
@@ -152,4 +171,9 @@ class HomeFragment : Fragment() {
         hotPlaceAdapter.notifyDataSetChanged()
     }
 
+    private fun stickyHeader(){
+        binding.nsvHome.run{
+            header = binding.clSearch
+        }
+    }
 }
