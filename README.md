@@ -1,8 +1,16 @@
 # 🚩 합동 세미나 11조 
 
+## 📌 시연 영상
+
+https://user-images.githubusercontent.com/61824695/142553648-51a2f73d-d64d-48bb-9931-156693e9a0a6.mp4
+
+<br>
+
 ## 📌 git branch
 
-+ 이슈로 파기 => 이슈 번호로 구별
+* 이슈 번호로 branch 생성
+  * ex) feature/#1 
+  * 이슈는 '[type] 기능 설명'으로 작성
 
 <br>
 
@@ -15,7 +23,7 @@
 ### Basic Struture
 
 ```
-[type] footer - subject
+[type] #{issue_number} - subject
 ```
 
 ### Type
@@ -36,11 +44,6 @@
 - 어떤 변경점이 있는지 설명한다
 - 명령조를 사용한다
 
-### Footer
-
-- Issue Tracker IDs를 적을 때 사용
-- issue track : #{issue_number} 형태로 기입
-
 <br>
 
 ## 📌 git flow
@@ -57,9 +60,13 @@
 
 + network
 + ui
-  + 화면별로
-  + signin
-  + signup
+  + calendar
+  + detail
+  + home
+    + bestreview
+    + recommendplace 
+  + mypage
+  + wish
 
 <br>
 
@@ -156,7 +163,8 @@ class MainActivity : AppCompatActivity()
 
 
 ### Resource naming
-- what_description_size
 
+
+<img width="1091" alt="스크린샷 2021-08-13 오후 2 39 37" src="https://user-images.githubusercontent.com/61824695/142552864-9375be39-1b2c-4216-807c-fd43a6770184.png">
 
 
