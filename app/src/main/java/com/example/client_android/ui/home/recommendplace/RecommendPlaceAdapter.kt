@@ -45,6 +45,9 @@ class RecommendPlaceAdapter : RecyclerView.Adapter<RecommendPlaceAdapter.Recomme
                         ivAverageStar.setImageResource(R.drawable.ic_star_empty)
                     tvAverageScore.text = data.averageScore.toString()
 
+                    tvReviewCnt.text  = "(" + data.reviewCnt + ")"
+                    tvCafeLocation.text = data.kind + "·" + data.location
+
 
                     /* 즉시 예약 & 원격 줄서기 */
                     if(data.fastReservation && data.remoteWaiting) {
