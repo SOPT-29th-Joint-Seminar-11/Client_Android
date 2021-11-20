@@ -3,40 +3,53 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../../layout/custom_preview.xml" value="0.25677083333333334" />
-        <entry key="..\:/Users/alsd2/Desktop/Client_Android/app/src/main/res/layout/item_best_review_list.xml" value="0.14108409321175278" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_btn_call.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_facility_park.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_facility_pet.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_facility_wifi.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/ic_star_empty.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/rectangle_border_gray_top.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/rectangle_border_red_radius_17dp.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/rectangle_border_red_radius_5dp.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/rectangle_fill_radius_17dp.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/drawable/selector_bottom_calendar.xml" value="0.22083333333333333" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/activity_detail.xml" value="0.25" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/fragment_shop_info.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/item_slider_img.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/menu_button_shop.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/rating_bar.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/view_picks.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/khk21/commitstage/Client_Android/app/src/main/res/layout/view_rating_bar.xml" value="0.2046875" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/drawable/ic_star_empty.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/drawable/ic_star_fill.xml" value="0.38229166666666664" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/activity_detail.xml" value="0.33" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/activity_main.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/fragment_home.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/fragment_my_page.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/fragment_wish.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/item_best_review_list.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/item_recommend_place_list.xml" value="0.3307291666666667" />
+        <entry key="..\:/Users/khk21/github/Client_Android/app/src/main/res/layout/item_slider_img.xml" value="0.5597826086956522" />
         <entry key="app/src/main/res/drawable/ic_calendarselected.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/ic_calendarunselected.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_homeselected.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/ic_homeunselected.xml" value="0.25729166666666664" />
-        <entry key="app/src/main/res/drawable/ic_logo.xml" value="1.4041666666666666" />
         <entry key="app/src/main/res/drawable/ic_mypageselected.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/ic_mypageunselected.xml" value="0.25729166666666664" />
         <entry key="app/src/main/res/drawable/ic_wishselected.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/ic_wishunselected.xml" value="0.25729166666666664" />
-        <entry key="app/src/main/res/drawable/rectangle_border_gray_30.xml" value="0.24635416666666668" />
-        <entry key="app/src/main/res/drawable/rectangle_border_gray_top.xml" value="0.24635416666666668" />
-        <entry key="app/src/main/res/drawable/rectangle_border_red_radius_17dp.xml" value="0.24635416666666668" />
-        <entry key="app/src/main/res/drawable/rectangle_border_red_radius_5dp.xml" value="0.24635416666666668" />
-        <entry key="app/src/main/res/drawable/rectangle_fill_radius_17dp.xml" value="0.24635416666666668" />
-        <entry key="app/src/main/res/drawable/rectangle_fill_radius_30dp.xml" value="0.24635416666666668" />
-        <entry key="app/src/main/res/drawable/rv_btn_background.xml" value="0.24635416666666668" />
         <entry key="app/src/main/res/drawable/selector_bottom_calendar.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/selector_bottom_home.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/selector_bottom_mypage.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/selector_bottom_navi.xml" value="0.2604166666666667" />
         <entry key="app/src/main/res/drawable/selector_bottom_wish.xml" value="0.2604166666666667" />
-        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.22554347826086957" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.24114583333333334" />
         <entry key="app/src/main/res/layout/fragment_d.xml" value="0.24114583333333334" />
-        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.11144605949097885" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/fragment_like.xml" value="0.24114583333333334" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/fragment_wish.xml" value="0.1431159420289855" />
-        <entry key="app/src/main/res/layout/item_best_review_list.xml" value="0.22554347826086957" />
-        <entry key="app/src/main/res/layout/item_recommend_place_list.xml" value="0.55" />
-        <entry key="app/src/main/res/layout/item_slider_img.xml" value="0.22554347826086957" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.24114583333333334" />
       </map>
     </option>
