@@ -190,13 +190,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_shop_introduction"
                 android:layout_marginTop="34dp"
-                android:layout_marginHorizontal="40dp"/>
+                android:layout_marginHorizontal="13dp"/>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tl_shop_detail"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
                 app:layout_constraintEnd_toEndOf="@+id/ll_menu_button_shop"
                 app:layout_constraintStart_toStartOf="@+id/ll_menu_button_shop"
                 app:layout_constraintTop_toBottomOf="@+id/ll_menu_button_shop"
