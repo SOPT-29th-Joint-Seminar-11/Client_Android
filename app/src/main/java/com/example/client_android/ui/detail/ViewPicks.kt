@@ -40,7 +40,7 @@ class ViewPicks @JvmOverloads constructor(
         tv.text = str
         tv.setTextAppearance(R.style.pick_text)
 
-        tv.setPadding(getDP(11), 0, getDP(11), 0)
+        tv.setPadding(getDP(11), getDP(9), getDP(11), getDP(9))
 
         val layoutParams = LayoutParams(
             LayoutParams.WRAP_CONTENT,
