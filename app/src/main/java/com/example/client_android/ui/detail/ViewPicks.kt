@@ -6,15 +6,14 @@ import android.view.LayoutInflater
 import android.widget.TextView
 import com.example.client_android.R
 import com.example.client_android.databinding.ViewPicksBinding
+import com.example.client_android.util.px
 import com.google.android.flexbox.FlexboxLayout
 
 class ViewPicks @JvmOverloads constructor(
     context: Context, attrs: AttributeSet?, defStyleAttr: Int = 0
 ) : FlexboxLayout(context, attrs, defStyleAttr) {
     private var binding: ViewPicksBinding
-    // dp 계산에 필요
-    private val scale = resources.displayMetrics.density
-    //
+    // pick list
     private val pickList = mutableListOf<String>()
 
     init {
@@ -40,20 +39,18 @@ class ViewPicks @JvmOverloads constructor(
         tv.text = str
         tv.setTextAppearance(R.style.pick_text)
 
-        tv.setPadding(getDP(11), getDP(9), getDP(11), getDP(9))
+        tv.setPadding(px(11), px(9), px(11), px(9))
 
         val layoutParams = LayoutParams(
             LayoutParams.WRAP_CONTENT,
             LayoutParams.WRAP_CONTENT
         )
-        layoutParams.setMargins(0, getDP(8), getDP(8), 0)
+        layoutParams.setMargins(0, px(8), px(8), 0)
         tv.layoutParams = layoutParams
 
         tv.setBackgroundResource(R.drawable.rectangle_border_red_radius_17dp)
         binding.fblCategoryContainer.addView(tv)
 
     }
-
-    private fun getDP(value: Int): Int = (value * scale + 0.5f).toInt()
 
 }
