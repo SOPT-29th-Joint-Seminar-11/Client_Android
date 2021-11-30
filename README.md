@@ -59,6 +59,9 @@ https://user-images.githubusercontent.com/61824695/142553648-51a2f73d-d64d-48bb-
 ## 📌 프로젝트 폴더링
 
 + network
+  + service
+  + model
+
 + ui
   + calendar
   + detail
