@@ -1,15 +1,26 @@
 package com.example.client_android.ui.detail
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.example.client_android.databinding.ActivityDetailBinding
+import com.example.client_android.network.model.ResponseReserve
+import com.example.client_android.network.service.ServiceCreator
 import com.google.android.material.tabs.TabLayoutMediator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var imageSliderAdapter: ImageSliderAdapter
     private lateinit var detailTabViewPagerAdapter: DetailTabViewPagerAdapter
+
+    // cafeId : DetailView를 시작하는 Intent를 넘겨줄 때 함께 받아야 함
+    private var cafeId = 1L
 
     // 현재 대기팀 수, 서버에서 받아올 예정
     private var waitings = 3
@@ -25,6 +36,11 @@ class DetailActivity : AppCompatActivity() {
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
+        // Intent에서 cafeId 추출
+        cafeId = intent.getLongExtra("cafeId", 1L)
+
+        initListener()
+
         initTabAdapter()
         initTabLayout()
 
@@ -34,6 +50,33 @@ class DetailActivity : AppCompatActivity() {
         initTextData()
 
         setContentView(binding.root)
+    }
+
+    private fun makeReservation() {
+        val call: Call<ResponseReserve> = ServiceCreator.reserveService.postReserve(cafeId)
+
+        call.enqueue(object: Callback<ResponseReserve> {
+            override fun onResponse(
+                call: Call<ResponseReserve>,
+                response: Response<ResponseReserve>
+            ) {
+                val data = response.body()?.data
+
+                // data?.flag를 활용해 처리
+            }
+
+            override fun onFailure(call: Call<ResponseReserve>, t: Throwable) {
+                Log.e("Network Error", "error : $t")
+            }
+        })
+    }
+
+    /* init methods */
+    private fun initListener() {
+        // 즉시 예약 버튼
+        binding.btnDirectReservation.setOnClickListener {
+            makeReservation()
+        }
     }
 
     private fun initTabAdapter() {
