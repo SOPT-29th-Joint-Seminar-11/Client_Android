@@ -1,14 +1,14 @@
 package com.example.client_android.ui.detail
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
+import com.example.client_android.R
 import com.example.client_android.databinding.ActivityDetailBinding
 import com.example.client_android.network.model.ResponseReserve
 import com.example.client_android.network.service.ServiceCreator
+import com.example.client_android.util.simpleDialog
 import com.google.android.material.tabs.TabLayoutMediator
 import retrofit2.Call
 import retrofit2.Callback
@@ -55,6 +55,9 @@ class DetailActivity : AppCompatActivity() {
     private fun makeReservation() {
         val call: Call<ResponseReserve> = ServiceCreator.reserveService.postReserve(cafeId)
 
+        var msg: String
+        val btn = getString(R.string.detail_dialog_btn_ok)
+
         call.enqueue(object: Callback<ResponseReserve> {
             override fun onResponse(
                 call: Call<ResponseReserve>,
@@ -62,11 +65,27 @@ class DetailActivity : AppCompatActivity() {
             ) {
                 val data = response.body()?.data
 
-                // data?.flag를 활용해 처리
+                // flag 값이 안들어왔을 경우 -> error
+                if (data?.flag == null) {
+                    msg = getString(R.string.detail_dialog_msg_fail)
+                }
+                // flag가 true일 경우 -> 예약 완료
+                else if (data.flag) {
+                    msg = getString(R.string.detail_dialog_msg_success_reserved)
+                }
+                // flag가 false일 경우 -> 예약 취소
+                else {
+                    msg = getString(R.string.detail_dialog_msg_success_canceled)
+                }
+
+                simpleDialog(msg, btn)
             }
 
             override fun onFailure(call: Call<ResponseReserve>, t: Throwable) {
                 Log.e("Network Error", "error : $t")
+
+                msg = getString(R.string.detail_dialog_msg_fail)
+                simpleDialog(msg, btn)
             }
         })
     }

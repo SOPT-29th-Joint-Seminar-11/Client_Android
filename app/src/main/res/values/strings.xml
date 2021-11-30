@@ -25,6 +25,12 @@
     <string name="android_detail_btn_remote_wait">원격 줄서기</string>
     <string name="android_detail_btn_direct_reservation">즉시 예약</string>
 
+    <!-- detail_activity dialog -->
+    <string name="detail_dialog_msg_success_reserved">예약이 완료되었습니다.</string>
+    <string name="detail_dialog_msg_success_canceled">예약이 취소되었습니다.</string>
+    <string name="detail_dialog_msg_fail">서버 통신 오류가 발생하였습니다.</string>
+    <string name="detail_dialog_btn_ok">확인</string>
+
     <!-- menu_button_shop -->
     <string name="android_menu_button_shop_map">위치</string>
     <string name="android_menu_button_shop_call">전화</string>
