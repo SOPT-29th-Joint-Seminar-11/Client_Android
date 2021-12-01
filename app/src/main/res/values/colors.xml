@@ -21,4 +21,5 @@
     <color name="line">#F3F5F8</color>
     <color name="line_gray">#E7E7E7</color>
     <color name="black_alpha_35">#59000000</color>
+    <color name="alpha_0">#00000000</color>
 </resources>
