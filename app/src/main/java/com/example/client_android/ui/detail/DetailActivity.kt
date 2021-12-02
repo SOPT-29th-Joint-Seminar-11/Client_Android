@@ -92,19 +92,12 @@ class DetailActivity : AppCompatActivity() {
 
 
     private fun initTabAdapter(tags: ResponseCafeDetail.Data.DetailData) {
-        // Fragment shopInfoFragment = new ShopInfoFragment()
+
+        // ShopInfoFragment 로 data를 전달하기 위해 인자로 넘겨받은 서버에서 받은 data를 bundle 에 넣어서 전달한다
         val shopInfoFragment = ShopInfoFragment()
         val bundle = Bundle()
         bundle.putParcelable("tags", tags)
-
-        /*
-        // bundle.putStringArrayList("tags", tags)
-        bundle.putInt("pet", pet)
-        bundle.putInt("wifi", wifi)
-        bundle.putInt("parking", parking)
-         */
         shopInfoFragment.arguments = bundle
-
 
         val fragmentList = listOf(shopInfoFragment, ShopMenuFragment(), ShopReviewFragment())
 
@@ -151,22 +144,20 @@ class DetailActivity : AppCompatActivity() {
                     // 매장정보에 대한 detail { tags, pet, wifi, parking } 정보들은 ShopInfoFragment로 전달하기 위해
                     // initTabAdapter() 메서드의 인자로 전달
                     initTabAdapter(response.body()?.data?.detail!!)
-
                     initTabLayout()
 
 
                     // cafeImage 초기화
                     val cafeImageList = response.body()?.data?.info?.images
 
-                    // imageSliderAdapter.dataList.addAll(cafeImageList)
+                    imageSliderAdapter.dataList.addAll(cafeImageList!!)
                     // 원래 위의 코드가 맞지만 현재, 서버 오류로 밑의 코드로 대신해서 사용중
-                    imageSliderAdapter.dataList.addAll(cafeImageList!!.map { it.replace(" ", "")})
                     imageSliderAdapter.notifyDataSetChanged()
 
                     // 나머지 정보들 초기화
                     with(binding){
-                        tvIndicatorImg.text = "1 / ${imageSliderAdapter.itemCount}" // 이건 굳이 여기 이 서버통신 함수 안에 없어도 될것 같은데
-                        // 서버에서 받아와야 하는 값들
+                        tvIndicatorImg.text = "1 / ${imageSliderAdapter.itemCount}" // 이건 서버 통신 불필요 ?
+
                         tvWaitCount.text = "대기 ${response.body()?.data?.info?.waitingCount}팀" // 대기 3팀
                         tvShopName.text = response.body()?.data?.info?.name // 유니유니
                         tvShopDistance.text = "${response.body()?.data?.info?.distance}km" // 1km

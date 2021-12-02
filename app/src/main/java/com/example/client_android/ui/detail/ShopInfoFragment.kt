@@ -55,10 +55,10 @@ class ShopInfoFragment : Fragment() {
 
 
         // 편의시설
-        if(result.pet == 1){
+        if(result.pet ==0){
             binding.btnFacilityPet.visibility = View.GONE
         }
-        if(result.wifi == 1){
+        if(result.wifi == 0){
             binding.btnFacilityWifi.visibility = View.GONE
         }
         if(result.parking == 0){

@@ -190,6 +190,7 @@
         android:background="@drawable/ic_facility_wifi"
         android:layout_marginTop="9dp"
         android:layout_marginStart="16dp"
+        app:layout_goneMarginLeft="0dp"
         app:layout_constraintStart_toEndOf="@+id/btn_facility_pet"
         app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_facility" />
 
@@ -200,6 +201,7 @@
         android:background="@drawable/ic_facility_park"
         android:layout_marginTop="9dp"
         android:layout_marginStart="16dp"
+        app:layout_goneMarginLeft="0dp"
         app:layout_constraintStart_toEndOf="@+id/btn_facility_wifi"
         app:layout_constraintTop_toBottomOf="@+id/tv_text_shop_facility" />
 
