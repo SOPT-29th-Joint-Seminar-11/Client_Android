@@ -3,9 +3,11 @@ package com.example.client_android.ui.detail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.viewpager2.widget.ViewPager2
 import com.example.client_android.R
 import com.example.client_android.databinding.ActivityDetailBinding
+import com.example.client_android.network.model.ResponseCafeDetail
 import com.example.client_android.network.model.ResponseReserve
 import com.example.client_android.network.service.ServiceCreator
 import com.example.client_android.util.simpleDialog
@@ -20,7 +22,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var detailTabViewPagerAdapter: DetailTabViewPagerAdapter
 
     // cafeId : DetailView를 시작하는 Intent를 넘겨줄 때 함께 받아야 함
-    private var cafeId = 1L
+    private var cafeId = 1
 
     // 현재 대기팀 수, 서버에서 받아올 예정
     private var waitings = 3
@@ -37,7 +39,7 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
         // Intent에서 cafeId 추출
-        cafeId = intent.getLongExtra("cafeId", 1L)
+        // cafeId = intent.getIntExtra("cafeId", 1)
 
         initListener()
 
@@ -47,6 +49,8 @@ class DetailActivity : AppCompatActivity() {
         initViewArrange()
 
         initSliderImgAdapter()
+
+        // 서버에서 카페 상세정보 받아온 후 뿌려주기기
         initTextData()
 
         setContentView(binding.root)
@@ -131,7 +135,56 @@ class DetailActivity : AppCompatActivity() {
         imageSliderAdapter.notifyDataSetChanged()
     }
 
-    private fun initTextData() {
+    private fun initTextData() { // 서버에서 값을 받아와 카페 상세정보 뿌려주기
+        val callCafeDetail: Call<ResponseCafeDetail> = ServiceCreator.reserveService.getCafeDetail(cafeId)
+
+        callCafeDetail.enqueue(object: Callback<ResponseCafeDetail> {
+            override fun onResponse(
+                callCafeDetail: Call<ResponseCafeDetail>,
+                response: Response<ResponseCafeDetail>
+            ) {
+                if (response.isSuccessful) { // status가 200 ~ 300 일 때,
+                    // cafeImage
+                    val cafeImageList = response.body()?.data?.info?.images
+
+                    // imageSliderAdapter.dataList.addAll(cafeImageList)
+                    imageSliderAdapter.dataList.addAll(cafeImageList!!.map { it.replace(" ", "")})
+
+                    imageSliderAdapter.notifyDataSetChanged()
+
+                    //Toast.makeText(this@DetailActivity, "isSuccessful", Toast.LENGTH_SHORT).show()
+                    // 나머지 것들 초기화
+                    with(binding){
+                        tvIndicatorImg.text = "1 / ${imageSliderAdapter.itemCount}" // 이건 굳이 여기 이 서버통신 함수 안에 없어도 될것 같은데
+                        // 서버에서 받아와야 하는 값들
+                        tvWaitCount.text = "대기 ${response.body()?.data?.info?.waitingCount}팀" // 대기 3팀
+                        tvShopName.text = response.body()?.data?.info?.name // 유니유니
+                        tvShopDistance.text = "${response.body()?.data?.info?.distance}km" // 1km
+                        tvShopAddress.text = response.body()?.data?.info?.address // 서울특별시 성북구 길음동 1276
+
+                        llRatingBar.setStar(response.body()?.data?.info?.rating!!) // !! 표시 쓰는거 맞나 별 4개
+
+                        tvShopRating.text = "${response.body()?.data?.info?.rating}" // 4.8
+                        tvShopReviews.text = "(${response.body()?.data?.info?.reviewCount})" // (7)
+                        tvShopIntroduction.text = "${response.body()?.data?.info?.description}" // 유니유니는 ~
+                    }
+
+
+                    // 나머지 body.data.detail에 들어있는 tags, pet, wifi, parking은 ShopInfoFragment
+                }
+                else {
+                    val message = response.body()?.message
+                    Toast.makeText(this@DetailActivity, "$message", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseCafeDetail>, t: Throwable) {
+                Toast.makeText(this@DetailActivity, "onFailure", Toast.LENGTH_SHORT).show()
+                Log.e("NetworkTest", "error:$t")
+            }
+        })
+
+        /*
         // 서버에서 받아와야 하는 값들
         imageSliderAdapter.dataList.addAll(
             mutableListOf("https://user-images.githubusercontent.com/37872134/141724346-6d2d0fe0-172e-47c7-bd45-6f402b01878d.png",
@@ -155,6 +208,7 @@ class DetailActivity : AppCompatActivity() {
             tvShopReviews.text = "(${reviews})"
             tvShopIntroduction.text = "유니유니는 다양한 스콘, 쿠키, 음료, 자체 제작 케이크로 보는 즐거움과 더불어 먹는 즐거움을 선사합니다"
         }
+        */
 
     }
 
