@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.client_android.R
 import com.example.client_android.databinding.ActivityDetailBinding
@@ -24,34 +25,21 @@ class DetailActivity : AppCompatActivity() {
     // cafeId : DetailView를 시작하는 Intent를 넘겨줄 때 함께 받아야 함
     private var cafeId = 1
 
-    // 현재 대기팀 수, 서버에서 받아올 예정
-    private var waitings = 3
-    // 별점, 서버에서 받아올 예정
-    private var rating = 4.8f
-    // 리뷰 수, 서버에서 받아올 예정
-    private var reviews = 7
-    // 가게와의 거리, 서버에서 받아올 예정
-    private var distance = 1
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
-        // Intent에서 cafeId 추출
-        // cafeId = intent.getIntExtra("cafeId", 1)
-
+        cafeId = intent.getIntExtra("cafeId", 1)
         initListener()
 
-        initTabAdapter()
-        initTabLayout()
+        initTextData()  // 서버에서 카페 상세정보 받아온 후 뿌려주기기
+        // initTabAdapter()
+        // initTabLayout() 모두 여기서 실행해줄 것
 
         initViewArrange()
 
         initSliderImgAdapter()
-
-        // 서버에서 카페 상세정보 받아온 후 뿌려주기기
-        initTextData()
 
         setContentView(binding.root)
     }
@@ -102,8 +90,23 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    private fun initTabAdapter() {
-        val fragmentList = listOf(ShopInfoFragment(), ShopMenuFragment(), ShopReviewFragment())
+
+    private fun initTabAdapter(tags: ResponseCafeDetail.Data.DetailData) {
+        // Fragment shopInfoFragment = new ShopInfoFragment()
+        val shopInfoFragment = ShopInfoFragment()
+        val bundle = Bundle()
+        bundle.putParcelable("tags", tags)
+
+        /*
+        // bundle.putStringArrayList("tags", tags)
+        bundle.putInt("pet", pet)
+        bundle.putInt("wifi", wifi)
+        bundle.putInt("parking", parking)
+         */
+        shopInfoFragment.arguments = bundle
+
+
+        val fragmentList = listOf(shopInfoFragment, ShopMenuFragment(), ShopReviewFragment())
 
         detailTabViewPagerAdapter = DetailTabViewPagerAdapter(this)
         detailTabViewPagerAdapter.fragments.addAll(fragmentList)
@@ -144,16 +147,23 @@ class DetailActivity : AppCompatActivity() {
                 response: Response<ResponseCafeDetail>
             ) {
                 if (response.isSuccessful) { // status가 200 ~ 300 일 때,
-                    // cafeImage
+
+                    // 매장정보에 대한 detail { tags, pet, wifi, parking } 정보들은 ShopInfoFragment로 전달하기 위해
+                    // initTabAdapter() 메서드의 인자로 전달
+                    initTabAdapter(response.body()?.data?.detail!!)
+
+                    initTabLayout()
+
+
+                    // cafeImage 초기화
                     val cafeImageList = response.body()?.data?.info?.images
 
                     // imageSliderAdapter.dataList.addAll(cafeImageList)
+                    // 원래 위의 코드가 맞지만 현재, 서버 오류로 밑의 코드로 대신해서 사용중
                     imageSliderAdapter.dataList.addAll(cafeImageList!!.map { it.replace(" ", "")})
-
                     imageSliderAdapter.notifyDataSetChanged()
 
-                    //Toast.makeText(this@DetailActivity, "isSuccessful", Toast.LENGTH_SHORT).show()
-                    // 나머지 것들 초기화
+                    // 나머지 정보들 초기화
                     with(binding){
                         tvIndicatorImg.text = "1 / ${imageSliderAdapter.itemCount}" // 이건 굳이 여기 이 서버통신 함수 안에 없어도 될것 같은데
                         // 서버에서 받아와야 하는 값들
@@ -169,8 +179,10 @@ class DetailActivity : AppCompatActivity() {
                         tvShopIntroduction.text = "${response.body()?.data?.info?.description}" // 유니유니는 ~
                     }
 
+                    /******************** 화진 좋아요 구현 ************************/
+                    // response.body()?.data?.info?.likeFlag, response.body()?.data?.info?.likeCount 이용해 구현하면 될듯
 
-                    // 나머지 body.data.detail에 들어있는 tags, pet, wifi, parking은 ShopInfoFragment
+
                 }
                 else {
                     val message = response.body()?.message

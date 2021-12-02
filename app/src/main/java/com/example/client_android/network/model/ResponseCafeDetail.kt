@@ -1,5 +1,8 @@
 package com.example.client_android.network.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 data class ResponseCafeDetail(
     val status: Int,
     val success: Boolean,
@@ -22,12 +25,13 @@ data class ResponseCafeDetail(
             val likeFlag: Boolean,
             val likeCount: Int
         )
+        @Parcelize
         data class DetailData(
             val tags: List<String>,
             val pet: Int,
             val wifi: Int,
             val parking: Int
-        )
+        ) : Parcelable
     }
 }
 

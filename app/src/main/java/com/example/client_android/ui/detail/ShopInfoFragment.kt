@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.client_android.R
 import com.example.client_android.databinding.FragmentShopInfoBinding
+import com.example.client_android.network.model.ResponseCafeDetail
 
 class ShopInfoFragment : Fragment() {
     private var _binding: FragmentShopInfoBinding? = null
@@ -24,30 +25,45 @@ class ShopInfoFragment : Fragment() {
     // 휴무일, 서버에서 받아올 예정
     private var holiday = "일요일"
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentShopInfoBinding.inflate(layoutInflater, container, false)
 
-        initTextData()
 
+        initTextData()
         return binding.root
     }
 
     private fun initTextData() {
+        // HomeActivity에서 bundle로 넘겨준 Parcelable data => 이를 이용해 매장 정보 띄우기
+        val result = arguments?.getParcelable<ResponseCafeDetail.Data.DetailData>("tags")
+        val tagsList = result?.tags
 
-        // 서버에서 받아와야하는 데이터들
+        // 더미데이터 부분
         binding.tvShopDetailOpenTime.text = "오늘 $openTimeStart ~ $openTimeEnd"
         binding.tvShopDetailBreakTime.text = "$breakTimeStart ~ $breakTimeEnd"
         binding.tvShopDetailHoliday.text = "$holiday"
 
-        picks.addAll(
-            listOf(
-                "깔끔한", "조용한", "차분한", "데이트 하기 좋은", "디저트", "단체석"
-            )
-        )
+
+        for(tags in tagsList!!){
+            picks.add(tags)
+        }
         binding.llViewPick.setPicks(picks)
+
+
+        // 편의시설
+        if(result.pet == 1){
+            binding.btnFacilityPet.visibility = View.GONE
+        }
+        if(result.wifi == 1){
+            binding.btnFacilityWifi.visibility = View.GONE
+        }
+        if(result.parking == 0){
+            binding.btnFacilityPark.visibility= View.GONE
+        }
 
     }
 
