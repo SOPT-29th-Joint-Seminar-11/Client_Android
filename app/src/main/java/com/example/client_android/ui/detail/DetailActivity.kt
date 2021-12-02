@@ -2,14 +2,25 @@ package com.example.client_android.ui.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.viewpager2.widget.ViewPager2
+import com.example.client_android.R
 import com.example.client_android.databinding.ActivityDetailBinding
+import com.example.client_android.network.model.ResponseReserve
+import com.example.client_android.network.service.ServiceCreator
+import com.example.client_android.util.simpleDialog
 import com.google.android.material.tabs.TabLayoutMediator
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
     private lateinit var imageSliderAdapter: ImageSliderAdapter
     private lateinit var detailTabViewPagerAdapter: DetailTabViewPagerAdapter
+
+    // cafeId : DetailView를 시작하는 Intent를 넘겨줄 때 함께 받아야 함
+    private var cafeId = 1L
 
     // 현재 대기팀 수, 서버에서 받아올 예정
     private var waitings = 3
@@ -25,6 +36,11 @@ class DetailActivity : AppCompatActivity() {
 
         binding = ActivityDetailBinding.inflate(layoutInflater)
 
+        // Intent에서 cafeId 추출
+        cafeId = intent.getLongExtra("cafeId", 1L)
+
+        initListener()
+
         initTabAdapter()
         initTabLayout()
 
@@ -34,6 +50,52 @@ class DetailActivity : AppCompatActivity() {
         initTextData()
 
         setContentView(binding.root)
+    }
+
+    private fun makeReservation() {
+        val call: Call<ResponseReserve> = ServiceCreator.reserveService.postReserve(cafeId)
+
+        var msg: String
+        val btn = getString(R.string.detail_dialog_btn_ok)
+
+        call.enqueue(object: Callback<ResponseReserve> {
+            override fun onResponse(
+                call: Call<ResponseReserve>,
+                response: Response<ResponseReserve>
+            ) {
+                val data = response.body()?.data
+
+                // flag 값이 안들어왔을 경우 -> error
+                if (data?.flag == null) {
+                    msg = getString(R.string.detail_dialog_msg_fail)
+                }
+                // flag가 true일 경우 -> 예약 완료
+                else if (data.flag) {
+                    msg = getString(R.string.detail_dialog_msg_success_reserved)
+                }
+                // flag가 false일 경우 -> 예약 취소
+                else {
+                    msg = getString(R.string.detail_dialog_msg_success_canceled)
+                }
+
+                simpleDialog(msg, btn)
+            }
+
+            override fun onFailure(call: Call<ResponseReserve>, t: Throwable) {
+                Log.e("Network Error", "error : $t")
+
+                msg = getString(R.string.detail_dialog_msg_fail)
+                simpleDialog(msg, btn)
+            }
+        })
+    }
+
+    /* init methods */
+    private fun initListener() {
+        // 즉시 예약 버튼
+        binding.btnDirectReservation.setOnClickListener {
+            makeReservation()
+        }
     }
 
     private fun initTabAdapter() {

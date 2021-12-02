@@ -59,6 +59,9 @@ https://user-images.githubusercontent.com/61824695/142553648-51a2f73d-d64d-48bb-
 ## 📌 프로젝트 폴더링
 
 + network
+  + service
+  + model
+
 + ui
   + calendar
   + detail
@@ -67,6 +70,7 @@ https://user-images.githubusercontent.com/61824695/142553648-51a2f73d-d64d-48bb-
     + recommendplace 
   + mypage
   + wish
++ util
 
 <br>
 
@@ -166,5 +170,4 @@ class MainActivity : AppCompatActivity()
 
 
 <img width="1091" alt="스크린샷 2021-08-13 오후 2 39 37" src="https://user-images.githubusercontent.com/61824695/142552864-9375be39-1b2c-4216-807c-fd43a6770184.png">
-
 
