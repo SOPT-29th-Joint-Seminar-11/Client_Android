@@ -111,6 +111,7 @@ class HomeFragment : Fragment() {
             override fun onClick(view: View, position: Int) {
                 activity?.let{
                     val intent = Intent(context, DetailActivity::class.java)
+                    intent.putExtra("cafeId", position+1)
                     startActivity(intent)
                 }
 
