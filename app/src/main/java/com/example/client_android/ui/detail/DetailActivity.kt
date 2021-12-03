@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.client_android.R
 import com.example.client_android.databinding.ActivityDetailBinding
@@ -45,7 +44,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun makeReservation() {
-        val call: Call<ResponseReserve> = ServiceCreator.reserveService.postReserve(cafeId)
+        val call: Call<ResponseReserve> = ServiceCreator.cafeService.postReserve(cafeId)
 
         var msg: String
         val btn = getString(R.string.detail_dialog_btn_ok)
@@ -132,7 +131,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun initTextData() { // 서버에서 값을 받아와 카페 상세정보 뿌려주기
-        val callCafeDetail: Call<ResponseCafeDetail> = ServiceCreator.reserveService.getCafeDetail(cafeId)
+        val callCafeDetail: Call<ResponseCafeDetail> = ServiceCreator.cafeService.getCafeDetail(cafeId)
 
         callCafeDetail.enqueue(object: Callback<ResponseCafeDetail> {
             override fun onResponse(

@@ -9,7 +9,7 @@ import retrofit2.http.Headers
 import retrofit2.http.POST
 import retrofit2.http.Path
 
-interface ReserveService {
+interface CafeService {
     @Headers("Content-Type: application/json")
     @POST("cafe-detail/{cafeId}/reserve")
     fun postReserve(
