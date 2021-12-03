@@ -1,6 +1,7 @@
 package com.example.client_android.network.service
 
 import com.example.client_android.network.model.ResponseCafeDetail
+import com.example.client_android.network.model.ResponseHomeData
 import com.example.client_android.network.model.ResponseReserve
 import retrofit2.Call
 import retrofit2.http.GET
@@ -20,4 +21,9 @@ interface ReserveService {
     fun getCafeDetail(
         @Path("cafeId") cafeId: Int
     ) : Call<ResponseCafeDetail>
+
+    @Headers("Content-Type: application/json")
+    @GET("home/cafe")
+    fun getHome(
+    ) : Call<ResponseHomeData>
 }
