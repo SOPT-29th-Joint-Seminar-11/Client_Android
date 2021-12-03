@@ -12,6 +12,7 @@
         android:layout_height="108dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="fitXY"
         tools:src="@drawable/img_uni"/>
 
     <TextView
