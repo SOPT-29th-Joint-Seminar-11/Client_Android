@@ -142,12 +142,13 @@ class DetailActivity : AppCompatActivity() {
 
                     // 매장정보에 대한 detail { tags, pet, wifi, parking } 정보들은 ShopInfoFragment로 전달하기 위해
                     // initTabAdapter() 메서드의 인자로 전달
-                    initTabAdapter(response.body()?.data?.detail!!)
+                    val data = response.body()?.data
+
+                    initTabAdapter(data?.detail!!)
                     initTabLayout()
 
-
                     // cafeImage 초기화
-                    val cafeImageList = response.body()?.data?.info?.images
+                    val cafeImageList = data?.info?.images
 
                     imageSliderAdapter.dataList.addAll(cafeImageList!!)
                     // 원래 위의 코드가 맞지만 현재, 서버 오류로 밑의 코드로 대신해서 사용중
@@ -157,20 +158,20 @@ class DetailActivity : AppCompatActivity() {
                     with(binding){
                         tvIndicatorImg.text = "1 / ${imageSliderAdapter.itemCount}" // 이건 서버 통신 불필요 ?
 
-                        tvWaitCount.text = "대기 ${response.body()?.data?.info?.waitingCount}팀" // 대기 3팀
-                        tvShopName.text = response.body()?.data?.info?.name // 유니유니
-                        tvShopDistance.text = "${response.body()?.data?.info?.distance}km" // 1km
-                        tvShopAddress.text = response.body()?.data?.info?.address // 서울특별시 성북구 길음동 1276
+                        tvWaitCount.text = "대기 ${data?.info?.waitingCount}팀" // 대기 3팀
+                        tvShopName.text = data?.info?.name // 유니유니
+                        tvShopDistance.text = "${data?.info?.distance}km" // 1km
+                        tvShopAddress.text = data?.info?.address // 서울특별시 성북구 길음동 1276
 
-                        llRatingBar.setStar(response.body()?.data?.info?.rating!!) // !! 표시 쓰는거 맞나 별 4개
+                        llRatingBar.setStar(data?.info?.rating!!) // !! 표시 쓰는거 맞나 별 4개
 
-                        tvShopRating.text = "${response.body()?.data?.info?.rating}" // 4.8
-                        tvShopReviews.text = "(${response.body()?.data?.info?.reviewCount})" // (7)
-                        tvShopIntroduction.text = "${response.body()?.data?.info?.description}" // 유니유니는 ~
+                        tvShopRating.text = "${data?.info?.rating}" // 4.8
+                        tvShopReviews.text = "(${data?.info?.reviewCount})" // (7)
+                        tvShopIntroduction.text = "${data?.info?.description}" // 유니유니는 ~
+
+                        // 좋아요 정보 적용
+                        llMenuButtonShop.initData(data?.info?.likeCount, data?.info?.likeFlag)
                     }
-
-                    /******************** 화진 좋아요 구현 ************************/
-                    // response.body()?.data?.info?.likeFlag, response.body()?.data?.info?.likeCount 이용해 구현하면 될듯
 
 
                 }
@@ -186,31 +187,6 @@ class DetailActivity : AppCompatActivity() {
             }
         })
 
-        /*
-        // 서버에서 받아와야 하는 값들
-        imageSliderAdapter.dataList.addAll(
-            mutableListOf("https://user-images.githubusercontent.com/37872134/141724346-6d2d0fe0-172e-47c7-bd45-6f402b01878d.png",
-                "https://user-images.githubusercontent.com/37872134/141724346-6d2d0fe0-172e-47c7-bd45-6f402b01878d.png",
-                "https://user-images.githubusercontent.com/37872134/141724346-6d2d0fe0-172e-47c7-bd45-6f402b01878d.png")
-        )
-
-        with(binding) {
-            // 계속 사용하면 되는 초기화식 ( 위의 dataset이 들어간 다음 초기화 하는 중)
-            tvIndicatorImg.text = "1 / ${imageSliderAdapter.itemCount}"
-
-            // 서버에서 받아와야 하는 값들
-            tvWaitCount.text = "대기 ${waitings}팀"
-            tvShopName.text = "유니유니"
-            tvShopAddress.text = "서울특별시 성북구 길음동 1276"
-
-            llRatingBar.setStar(rating)
-
-            tvShopDistance.text = "${distance}km"
-            tvShopRating.text = "${rating}"
-            tvShopReviews.text = "(${reviews})"
-            tvShopIntroduction.text = "유니유니는 다양한 스콘, 쿠키, 음료, 자체 제작 케이크로 보는 즐거움과 더불어 먹는 즐거움을 선사합니다"
-        }
-        */
 
     }
 

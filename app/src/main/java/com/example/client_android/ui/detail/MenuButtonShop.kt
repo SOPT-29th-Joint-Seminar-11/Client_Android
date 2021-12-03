@@ -12,15 +12,23 @@ class MenuButtonShop @JvmOverloads constructor(
 ) : LinearLayout(context, attrs, defStyleAttr) {
     private var binding: MenuButtonShopBinding
     // wish (하트) 개수
-    private var wishes = 18
+    private var wishes = 0
     // wish가 선택되었는지
     private var isWished = false
 
     init {
         binding = MenuButtonShopBinding.inflate(LayoutInflater.from(context), this, true)
 
-        initWishes()
+        // initWishes()
         initListener()
+    }
+
+    // 서버에서 받은 데이터로 wishes, isWished 초기화
+    fun initData(wishes: Int, isWished: Boolean) {
+        this.wishes = wishes
+        this.isWished = isWished
+
+        initWishes()
     }
 
     private fun initWishes() {
