@@ -170,9 +170,8 @@ class DetailActivity : AppCompatActivity() {
                         tvShopIntroduction.text = "${data?.info?.description}" // 유니유니는 ~
 
                         // 좋아요 정보 적용
-                        llMenuButtonShop.initData(data?.info?.likeCount, data?.info?.likeFlag)
+                        llMenuButtonShop.initData(cafeId, data?.info?.likeCount, data?.info?.likeFlag)
                     }
-
 
                 }
                 else {

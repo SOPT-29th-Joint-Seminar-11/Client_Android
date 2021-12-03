@@ -2,6 +2,7 @@ package com.example.client_android.network.service
 
 import com.example.client_android.network.model.ResponseCafeDetail
 import com.example.client_android.network.model.ResponseHomeData
+import com.example.client_android.network.model.ResponseLike
 import com.example.client_android.network.model.ResponseReserve
 import retrofit2.Call
 import retrofit2.http.GET
@@ -26,4 +27,10 @@ interface CafeService {
     @GET("home/cafe")
     fun getHome(
     ) : Call<ResponseHomeData>
+
+    @Headers("Content-Type: application/json")
+    @POST("cafe-detail/{cafeId}/like")
+    fun postLike(
+        @Path("cafeId") cafeId: Int
+    ) : Call<ResponseLike>
 }
