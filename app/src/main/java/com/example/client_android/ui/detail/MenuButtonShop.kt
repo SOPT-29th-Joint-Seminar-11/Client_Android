@@ -5,8 +5,10 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
 import android.widget.LinearLayout
+import android.widget.Toast
 import com.example.client_android.R
 import com.example.client_android.databinding.MenuButtonShopBinding
+import com.example.client_android.network.model.ResponseCafeDetail
 import com.example.client_android.network.model.ResponseLike
 import com.example.client_android.network.model.ResponseReserve
 import com.example.client_android.network.service.ServiceCreator
@@ -37,12 +39,7 @@ class MenuButtonShop @JvmOverloads constructor(
         this.wishes = wishes
         this.isWished = isWished
 
-        initWishes()
-    }
-
-    private fun initWishes() {
-        showWishBtn(isWished)
-        binding.tvShopLikes.text = wishes.toString()
+        refresh()
     }
 
     private fun initListener() {
@@ -70,9 +67,39 @@ class MenuButtonShop @JvmOverloads constructor(
                 }
             })
 
-            binding.tvShopLikes.text = wishes.toString()
-            showWishBtn(isWished)
+            loadWishDataFromNetwork()
         }
+    }
+
+    private fun refresh() {
+        binding.tvShopLikes.text = wishes.toString()
+        showWishBtn(isWished)
+    }
+
+    private fun refresh(likes: Int, isLiked: Boolean) {
+        binding.tvShopLikes.text = likes.toString()
+        showWishBtn(isLiked)
+    }
+
+    private fun loadWishDataFromNetwork() {
+
+        val call: Call<ResponseCafeDetail> = ServiceCreator.cafeService.getCafeDetail(cafeId)
+        call.enqueue(object: Callback<ResponseCafeDetail> {
+            override fun onResponse(
+                call: Call<ResponseCafeDetail>,
+                response: Response<ResponseCafeDetail>
+            ) {
+                val info = response.body()?.data?.info
+
+                wishes = info?.likeCount!!
+                isWished = info?.likeFlag!!
+                refresh(info?.likeCount, info?.likeFlag)
+            }
+
+            override fun onFailure(call: Call<ResponseCafeDetail>, t: Throwable) {
+                Log.e("NetworkTest", "error:$t")
+            }
+        })
     }
 
     private fun showWishBtn(isWished: Boolean) {
