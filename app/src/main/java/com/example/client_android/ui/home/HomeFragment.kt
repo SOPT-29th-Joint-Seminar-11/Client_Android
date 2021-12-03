@@ -116,7 +116,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun initNetwork(){
-        val call: Call<ResponseHomeData> = ServiceCreator.reserveService.getHome()
+        val call: Call<ResponseHomeData> = ServiceCreator.cafeService.getHome()
 
         call.enqueue(object: Callback<ResponseHomeData> {
             override fun onResponse(

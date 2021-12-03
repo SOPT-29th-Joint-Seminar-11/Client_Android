@@ -12,5 +12,5 @@ object ServiceCreator {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val reserveService: ReserveService = retrofit.create(ReserveService::class.java)
+    val cafeService: CafeService = retrofit.create(CafeService::class.java)
 }
