@@ -58,6 +58,9 @@
         <entry key="app/src/main/res/layout/fragment_like.xml" value="0.24114583333333334" />
         <entry key="app/src/main/res/layout/fragment_my_page.xml" value="0.24427083333333333" />
         <entry key="app/src/main/res/layout/fragment_wish.xml" value="0.1431159420289855" />
+        <entry key="app/src/main/res/layout/item_best_review_list.xml" value="0.20643363728470113" />
+        <entry key="app/src/main/res/layout/item_hot_place_list.xml" value="0.23596014492753623" />
+        <entry key="app/src/main/res/layout/item_recommend_place_list.xml" value="0.20643363728470113" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.24114583333333334" />
       </map>
     </option>
