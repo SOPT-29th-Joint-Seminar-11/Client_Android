@@ -12,11 +12,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.client_android.R
 import com.example.client_android.databinding.FragmentHomeBinding
+import com.example.client_android.network.model.ResponseHomeData
+import com.example.client_android.network.service.ServiceCreator
 import com.example.client_android.ui.detail.DetailActivity
 import com.example.client_android.ui.home.bestreview.BestReviewAdapter
 import com.example.client_android.ui.home.bestreview.ReviewData
+import com.example.client_android.ui.home.recommendplace.HotPlaceAdapter
 import com.example.client_android.ui.home.recommendplace.PlaceData
 import com.example.client_android.ui.home.recommendplace.RecommendPlaceAdapter
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 
 class HomeFragment : Fragment() {
@@ -28,7 +34,7 @@ class HomeFragment : Fragment() {
     // Adapter for RecyclerView
     private lateinit var bestReviewAdapter: BestReviewAdapter
     private lateinit var recommendPlaceAdapter: RecommendPlaceAdapter
-    private lateinit var hotPlaceAdapter: RecommendPlaceAdapter
+    private lateinit var hotPlaceAdapter: HotPlaceAdapter
 
     /* 서버에서 받아올 변수들 - 통신하면서 값이 바뀔 수 있으니 var 로 선언? */
     // 현재 위치의 주소 => 서버에서 받아옴
@@ -66,6 +72,7 @@ class HomeFragment : Fragment() {
         initRecommendPlaceAdapter()
         initBestReviewAdapter()
         initHotPlaceAdapter()
+        initNetwork()
 
         //setListener()
     }
@@ -95,26 +102,40 @@ class HomeFragment : Fragment() {
         // recyclerView 의 item 간 여백 설정하기
         binding.rvRecommendWhat.addItemDecoration(HorizontalItemDecorator(8)) // 픽셀 단위인가 dp 단위인가?
 
-        recommendPlaceAdapter.placeList.addAll( // recyclerView 에 dummy data 넣기 => 나중에 서버에서 받아올것
-            mutableListOf(
-                PlaceData(R.drawable.img_uni,"유니유니", 5.0f, 7, "카페", "상수", fastReservation = true, remoteWaiting = true),
-                PlaceData(R.drawable.img_uni,"카페 모이아", 4.0f, 10, "카페", "연남", fastReservation = true, remoteWaiting = false),
-                PlaceData(R.drawable.img_uni,"레이어드", 2.0f, 5, "카페", "동암", fastReservation = false, remoteWaiting = true),
-                PlaceData(R.drawable.img_uni,"홍대마카롱", 4.5f, 8, "카페", "신림", fastReservation = false, remoteWaiting = false),
-            )
-        )
-
-        recommendPlaceAdapter.notifyDataSetChanged()
-
         //클릭리스너 등록
         recommendPlaceAdapter.setItemClickListener( object : RecommendPlaceAdapter.ItemClickListener{
             override fun onClick(view: View, position: Int) {
                 activity?.let{
                     val intent = Intent(context, DetailActivity::class.java)
-                    intent.putExtra("cafeId", position+1)
+                    intent.putExtra("cafeId", position)
                     startActivity(intent)
                 }
 
+            }
+        })
+    }
+
+    private fun initNetwork(){
+        val call: Call<ResponseHomeData> = ServiceCreator.reserveService.getHome()
+
+        call.enqueue(object: Callback<ResponseHomeData> {
+            override fun onResponse(
+                call: Call<ResponseHomeData>,
+                response: Response<ResponseHomeData>
+            ) {
+                if(response.isSuccessful){
+                    val data = response.body()?.data
+                    if(data != null) {
+                        recommendPlaceAdapter.recommendplaceList.addAll(data)
+                        recommendPlaceAdapter.notifyDataSetChanged()
+                    }
+                }else{
+                    Toast.makeText(activity, "데이터 로딩에 실패했습니다.", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseHomeData>, t: Throwable) {
+                Log.e("Network Error", "error : $t")
             }
         })
     }
@@ -153,7 +174,7 @@ class HomeFragment : Fragment() {
     // rv_recommend_hot_place 의 adapter 초기화
     /* rv_recommend_what 와 비슷하게, RecommendPlaceAdapter 클래스를 재사용하지만 객체 자체는 다름 */
     private fun initHotPlaceAdapter(){
-        hotPlaceAdapter = RecommendPlaceAdapter()
+        hotPlaceAdapter = HotPlaceAdapter()
         binding.rvRecommendHotPlace.adapter = hotPlaceAdapter
         binding.rvRecommendHotPlace.layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
 
@@ -163,7 +184,7 @@ class HomeFragment : Fragment() {
         hotPlaceAdapter.placeList.addAll( // recyclerView 에 dummy data 넣기 => 나중에 서버에서 받아올것
             mutableListOf(
                 PlaceData(R.drawable.img_uni,"에드에그", 4.9f, 9, "버거", "마곡", "false".toBoolean(), "true".toBoolean()),
-                PlaceData(R.drawable.img_uni,"예담밥상", 5.0f, 3, "한식", "화양", "false".toBoolean(), "true".toBoolean()),
+                PlaceData(R.drawable.img_uni,"예담밥상", 5.0f, 3, "한식", "화양", "true".toBoolean(), "false".toBoolean()),
                 PlaceData(R.drawable.img_uni,"리틀넥 연남", 4.8f, 2, "카페", "연남", "false".toBoolean(), "false".toBoolean()),
                 PlaceData(R.drawable.img_uni,"우동 카덴", 5.0f, 1, "카페", "동암", "true".toBoolean(), "true".toBoolean()),
             )
