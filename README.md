@@ -1,8 +1,8 @@
 # 🚩 합동 세미나 11조 
 
 ## 📌 시연 영상
-
 https://user-images.githubusercontent.com/61824695/142553648-51a2f73d-d64d-48bb-9931-156693e9a0a6.mp4
+https://user-images.githubusercontent.com/61824695/144712441-38c1b640-1ca6-4b85-82bd-4ee6e468ca22.mp4
 
 <br>
 
